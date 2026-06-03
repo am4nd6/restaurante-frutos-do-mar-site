@@ -60,7 +60,7 @@ export function Hero() {
           >
             <span className="h-px w-12 bg-[var(--gold)]" />
             <span className="text-[10px] uppercase tracking-[0.4em] text-[var(--gold)]">
-              Maison de Frutos do Mar · Est. 1998
+              São Luís · Maranhão · Desde 1987
             </span>
           </motion.div>
 
@@ -69,9 +69,9 @@ export function Hero() {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="font-display text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-[var(--ice)]"
           >
-            O oceano,
+            A maré
             <br />
-            <span className="italic text-gold-gradient">servido</span> à mesa.
+            do <span className="italic text-gold-gradient">Maranhão</span>.
           </motion.h1>
 
           <motion.p
@@ -79,9 +79,9 @@ export function Hero() {
             transition={{ duration: 0.9 }}
             className="mt-8 max-w-xl text-[var(--ice)]/70 text-lg leading-relaxed"
           >
-            Uma experiência gastronômica imersiva onde cada prato é uma travessia.
-            Ingredientes pescados ao amanhecer, técnica francesa contemporânea e
-            a brisa do Atlântico em cada detalhe.
+            No coração do centro histórico de São Luís, num casarão de azulejos portugueses,
+            servimos o que a Baía de São Marcos oferece todo amanhecer — caranguejo do mangue,
+            camarão da Raposa e o tempero ancestral do cuxá.
           </motion.p>
 
           <motion.div
@@ -110,9 +110,9 @@ export function Hero() {
             className="mt-16 grid grid-cols-3 gap-6 max-w-md"
           >
             {[
-              { n: "27", l: "Anos de mar" },
-              { n: "3★", l: "Guia Estrelar" },
-              { n: "12", l: "Pescas diárias" },
+              { n: "37", l: "Anos na Praia Grande" },
+              { n: "★★★", l: "Veja Comer & Beber" },
+              { n: "06h", l: "Chegada do peixe" },
             ].map((s) => (
               <div key={s.l}>
                 <div className="font-display text-3xl text-[var(--gold)]">{s.n}</div>
