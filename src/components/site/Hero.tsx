@@ -167,9 +167,9 @@ export function Hero() {
               <div className="text-[9px] uppercase tracking-[0.3em] text-[var(--gold)] mb-1">
                 Prato do Chef
               </div>
-              <div className="font-display text-lg text-[var(--ice)]">Plateau Royale</div>
+              <div className="font-display text-lg text-[var(--ice)]">Caranguejada Reinado</div>
               <div className="mt-1 text-[10px] text-[var(--ice)]/60">
-                Ostras Belon · Lagostim · Caviar Oscietra
+                Caranguejo-uçá · arroz de cuxá · pimenta de cheiro
               </div>
             </motion.div>
           </div>
