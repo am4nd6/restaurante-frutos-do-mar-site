@@ -28,7 +28,7 @@ export function Reserve() {
             <span className="h-px w-12 bg-[var(--gold)]" />
           </div>
           <h2 className="font-display text-5xl md:text-7xl text-[var(--ice)] leading-[1.05]">
-            Sua <span className="italic text-gold-gradient">travessia</span> começa aqui.
+            Reserve sua mesa <span className="italic text-gold-gradient">na Ilha</span>.
           </h2>
         </motion.div>
 
@@ -75,7 +75,8 @@ export function Reserve() {
           </label>
           <div className="md:col-span-2 flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-4">
             <p className="text-[11px] text-[var(--ice)]/50 max-w-sm">
-              Confirmamos sua reserva em até 2 horas. Cancelamentos com 24h de antecedência.
+              Confirmamos por WhatsApp em até 2 horas. Cancelamentos com 24h de antecedência.
+              Recomendamos reservar com uma semana — São Luís enche aos fins de semana.
             </p>
             <button
               type="submit"
