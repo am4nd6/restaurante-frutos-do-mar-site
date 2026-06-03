@@ -9,13 +9,13 @@ export function Footer() {
           <div>
             <div className="font-display text-lg tracking-[0.2em] text-[var(--ice)]">MARÉA</div>
             <div className="text-[10px] uppercase tracking-[0.3em] text-[var(--ice)]/40">
-              Maison de Frutos do Mar
+              Cozinha Maranhense · São Luís — MA
             </div>
           </div>
         </div>
 
         <nav className="flex flex-wrap items-center justify-center gap-6 text-[10px] uppercase tracking-[0.3em] text-[var(--ice)]/60">
-          {["História", "Menu", "Reserva", "Imprensa", "Carreiras"].map((l) => (
+          {["Nossa Casa", "Cardápio", "Reservar", "Imprensa", "Trabalhe Conosco"].map((l) => (
             <a key={l} href="#" className="hover:text-[var(--gold)] transition-colors">
               {l}
             </a>
