@@ -14,10 +14,10 @@ import { Footer } from "@/components/site/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Maréa · Maison de Frutos do Mar" },
-      { name: "description", content: "Experiência gastronômica imersiva à beira-mar. Frutos do mar selvagens, técnica francesa contemporânea e brisa do Atlântico em cada prato." },
-      { property: "og:title", content: "Maréa · Maison de Frutos do Mar" },
-      { property: "og:description", content: "Restaurante premium especializado em frutos do mar. Reserve sua travessia." },
+      { title: "Maréa · Cozinha Maranhense · São Luís — MA" },
+      { name: "description", content: "Restaurante premium na Praia Grande, no Centro Histórico de São Luís. Caranguejo do mangue, peixada do cais e o tempero ancestral do Maranhão." },
+      { property: "og:title", content: "Maréa · Cozinha Maranhense · São Luís — MA" },
+      { property: "og:description", content: "Sabores da Baía de São Marcos num casarão azulejado da Praia Grande. Reserve sua mesa." },
     ],
   }),
   component: Index,

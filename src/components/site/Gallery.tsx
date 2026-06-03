@@ -12,12 +12,12 @@ export function Gallery() {
           <div className="flex items-center justify-center gap-3 mb-6">
             <span className="h-px w-12 bg-[var(--gold)]" />
             <span className="text-[10px] uppercase tracking-[0.4em] text-[var(--gold)]">
-              Experiência Gastronômica
+              Experiência Maranhense
             </span>
             <span className="h-px w-12 bg-[var(--gold)]" />
           </div>
           <h2 className="font-display text-5xl md:text-7xl text-[var(--ice)] leading-[1.05]">
-            Uma <span className="italic text-gold-gradient">imersão</span> sensorial.
+            A ilha que se <span className="italic text-gold-gradient">come</span>.
           </h2>
         </div>
 

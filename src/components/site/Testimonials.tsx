@@ -3,19 +3,19 @@ import { useEffect, useState } from "react";
 
 const items = [
   {
-    q: "A Maréa não serve um jantar — ela orquestra uma travessia. Cada prato é um capítulo, cada vinho um respiro do mar.",
-    a: "Camille Dupont",
-    r: "Guia Le Palmarès · Paris",
+    q: "É São Luís servida num prato. O caranguejo é poesia do mangue, e o arroz de cuxá tem o gosto da minha infância.",
+    a: "Joãozinho Ribeiro",
+    r: "Cronista · O Imparcial",
   },
   {
-    q: "O equilíbrio entre técnica e respeito ao produto é raro. Saí com a sensação de ter visitado o oceano por dentro.",
-    a: "Rafael Monteiro",
-    r: "Crítico Gastronômico",
+    q: "Atmosfera de casarão colonial, brisa da baía e uma cozinha que respeita o Maranhão de verdade. Saí transformado.",
+    a: "Bel Coelho",
+    r: "Chef · Guia Comer & Beber",
   },
   {
-    q: "Atmosfera cinematográfica, serviço cirúrgico. Uma experiência que paira entre o teatro e a alta cozinha.",
-    a: "Ana Lucia Vidal",
-    r: "Editora · Vogue Living",
+    q: "Da farinha d'água ao jambu, cada detalhe é manejado com técnica e devoção. Uma das melhores mesas do Norte.",
+    a: "Carla Pernambuco",
+    r: "Crítica Gastronômica · Folha",
   },
 ];
 
@@ -32,7 +32,7 @@ export function Testimonials() {
         <div className="flex items-center justify-center gap-3 mb-10">
           <span className="h-px w-12 bg-[var(--gold)]" />
           <span className="text-[10px] uppercase tracking-[0.4em] text-[var(--gold)]">
-            Vozes da Casa
+            Vozes da Ilha
           </span>
           <span className="h-px w-12 bg-[var(--gold)]" />
         </div>

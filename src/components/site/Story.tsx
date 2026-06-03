@@ -21,13 +21,13 @@ export function Story() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--abyss)] via-transparent to-transparent" />
           </div>
-          <div className="absolute -bottom-8 -right-8 glass rounded-2xl px-6 py-5 max-w-[220px] hidden md:block">
+          <div className="absolute -bottom-8 -right-8 glass rounded-2xl px-6 py-5 max-w-[240px] hidden md:block">
             <div className="font-display italic text-[var(--gold)] text-2xl leading-tight">
-              "Cozinhamos
-              <br /> com o mar."
+              "A maré
+              <br /> manda no menu."
             </div>
             <div className="mt-2 text-[10px] uppercase tracking-[0.3em] text-[var(--ice)]/60">
-              — Chef L. Marais
+              — Chef Dona Lurdes
             </div>
           </div>
         </motion.div>
@@ -42,29 +42,31 @@ export function Story() {
           <div className="flex items-center gap-3 mb-6">
             <span className="h-px w-12 bg-[var(--gold)]" />
             <span className="text-[10px] uppercase tracking-[0.4em] text-[var(--gold)]">
-              Nossa História
+              Nossa Casa
             </span>
           </div>
           <h2 className="font-display text-5xl md:text-7xl leading-[1.05] text-[var(--ice)]">
-            Uma casa <span className="italic text-gold-gradient">à beira-mar</span> desde 1998.
+            Um casarão <span className="italic text-gold-gradient">na Praia Grande</span> desde 1987.
           </h2>
           <div className="mt-10 space-y-6 text-[var(--ice)]/70 text-lg leading-relaxed max-w-xl">
             <p>
-              Fundada por uma família de pescadores normandos, a Maréa nasceu do desejo
-              de transformar a captura do dia em arte. Cada mesa carrega a memória das
-              marés, o silêncio do alto-mar e a precisão da brasa.
+              A Maréa nasceu num sobrado azulejado do Centro Histórico de São Luís,
+              tombado pela UNESCO, fundado por uma família de marisqueiras da Raposa.
+              Aqui, a Baía de São Marcos chega cedo — caranguejos do mangue, peixe-pedra
+              fresco e o jambu colhido na manhã.
             </p>
             <p>
-              Hoje, sob comando do Chef Laurent Marais, mantemos um único compromisso:
-              servir o que o oceano nos confia, com o respeito que ele exige.
+              Sob o comando de Dona Lurdes e do filho Chef Caio Reis, traduzimos o
+              tempero da Ilha em uma cozinha autoral: ancestral no sabor, contemporânea
+              na técnica, generosa como o povo maranhense.
             </p>
           </div>
 
           <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-8 pt-10 border-t border-[var(--border)]">
             {[
-              { k: "Pesca local", v: "100%" },
-              { k: "Reservas/mês", v: "1.2k" },
-              { k: "Carta de vinhos", v: "320" },
+              { k: "Pesca artesanal", v: "100%" },
+              { k: "Comunidades parceiras", v: "14" },
+              { k: "Cachaças do Norte", v: "180" },
             ].map((s) => (
               <div key={s.k}>
                 <div className="font-display text-4xl text-[var(--ice)]">{s.v}</div>
