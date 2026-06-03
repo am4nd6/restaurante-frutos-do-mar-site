@@ -8,12 +8,12 @@ import octopus from "@/assets/spec-octopus.jpg";
 import fish from "@/assets/spec-fish.jpg";
 
 const items = [
-  { n: "01", t: "Camarões", img: shrimp, d: "Tigre selvagem, flambados em conhaque." },
-  { n: "02", t: "Lagostas", img: lobster, d: "Bretãs, ao molho beurre noisette." },
-  { n: "03", t: "Caranguejos", img: crab, d: "Real do Alasca, manteiga de algas." },
-  { n: "04", t: "Ostras", img: oyster, d: "Belon, mignonette de champanhe." },
-  { n: "05", t: "Polvos", img: octopus, d: "Galego, brasa de carvalho." },
-  { n: "06", t: "Peixes Nobres", img: fish, d: "Linguado e robalo do dia." },
+  { n: "01", t: "Caranguejo-uçá", img: crab, d: "Do mangue da Raposa, no leite de coco e cuxá." },
+  { n: "02", t: "Camarão da Baía", img: shrimp, d: "Camarão-rosa de São Marcos, na moranga com jambu." },
+  { n: "03", t: "Sururu & Ostras", img: oyster, d: "Mariscos do litoral, abertos sobre brasa de carvão." },
+  { n: "04", t: "Peixe-Pedra", img: fish, d: "Inteiro, escamado na brasa, com farofa d'água." },
+  { n: "05", t: "Polvo do Atol", img: octopus, d: "Grelhado em folha de bananeira e azeite de dendê." },
+  { n: "06", t: "Lagosta de Tutoia", img: lobster, d: "Ao molho de pimenta-de-cheiro e manteiga de garrafa." },
 ];
 
 function Card({ item, i }: { item: typeof items[number]; i: number }) {
@@ -72,16 +72,16 @@ export function Specialties() {
             <div className="flex items-center gap-3 mb-6">
               <span className="h-px w-12 bg-[var(--gold)]" />
               <span className="text-[10px] uppercase tracking-[0.4em] text-[var(--gold)]">
-                Especialidades
+                Do Mangue à Mesa
               </span>
             </div>
             <h2 className="font-display text-5xl md:text-7xl text-[var(--ice)] max-w-2xl leading-[1.05]">
-              Do mar profundo <span className="italic text-gold-gradient">à sua mesa</span>.
+              O que a <span className="italic text-gold-gradient">Baía de São Marcos</span> nos dá.
             </h2>
           </div>
           <p className="text-[var(--ice)]/60 max-w-md">
-            Seis universos do oceano, cada um interpretado com a precisão e a generosidade
-            que definem a Maréa.
+            Seis especialidades nascidas no encontro do rio com o mar, traduzidas pela cozinha
+            ancestral maranhense e a técnica autoral da casa.
           </p>
         </div>
 
