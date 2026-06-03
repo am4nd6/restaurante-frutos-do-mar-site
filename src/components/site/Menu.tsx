@@ -5,10 +5,10 @@ import fish from "@/assets/spec-fish.jpg";
 import shrimp from "@/assets/spec-shrimp.jpg";
 
 const dishes = [
-  { name: "Plateau Belon", img: oyster, ing: "Ostras Belon · mignonette · limão siciliano", price: "R$ 280" },
-  { name: "Polvo à Brasa", img: octopus, ing: "Polvo galego · azeite trufado · folhas de carvalho", price: "R$ 195" },
-  { name: "Robalo Selvagem", img: fish, ing: "Robalo · alcaparras · manteiga noisette · ervas", price: "R$ 220" },
-  { name: "Ceviche Maréa", img: shrimp, ing: "Camarão tigre · leite de tigre · pera·coentro", price: "R$ 160" },
+  { name: "Caranguejada Reinado", img: oyster, ing: "Caranguejo-uçá · arroz de cuxá · vinagrete de pimenta-de-cheiro", price: "R$ 168" },
+  { name: "Polvo na Folha", img: octopus, ing: "Polvo grelhado · folha de bananeira · azeite de dendê · jambu", price: "R$ 152" },
+  { name: "Peixada do Cais", img: fish, ing: "Peixe-pedra · leite de coco · pirão de camarão · coentro", price: "R$ 138" },
+  { name: "Camarão na Moranga", img: shrimp, ing: "Camarão da Raposa · catupiry artesanal · jerimum · farinha d'água", price: "R$ 144" },
 ];
 
 export function Menu() {
@@ -20,18 +20,18 @@ export function Menu() {
             <div className="flex items-center gap-3 mb-6">
               <span className="h-px w-12 bg-[var(--gold)]" />
               <span className="text-[10px] uppercase tracking-[0.4em] text-[var(--gold)]">
-                Menu Destaque
+                Cardápio da Casa
               </span>
             </div>
             <h2 className="font-display text-5xl md:text-7xl text-[var(--ice)] leading-[1.05]">
-              Pratos <span className="italic text-gold-gradient">assinatura</span>.
+              Sabores <span className="italic text-gold-gradient">ancestrais</span>.
             </h2>
           </div>
           <a
             href="#reserva"
             className="text-xs uppercase tracking-[0.3em] text-[var(--ice)]/80 hover:text-[var(--gold)] transition-colors"
           >
-            Menu degustação completo →
+            Menu confraria completo →
           </a>
         </div>
 
