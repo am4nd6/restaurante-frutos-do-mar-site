@@ -16,14 +16,14 @@ export function Location() {
             <span className="text-[10px] uppercase tracking-[0.4em] text-[var(--gold)]">Visite-nos</span>
           </div>
           <h2 className="font-display text-5xl md:text-6xl text-[var(--ice)] leading-[1.05]">
-            Onde o <span className="italic text-gold-gradient">mar</span> nos encontra.
+            No coração da <span className="italic text-gold-gradient">Praia Grande</span>.
           </h2>
 
           <dl className="mt-12 space-y-8">
             {[
-              { t: "Endereço", v: "Av. Beira-Mar, 1998 · Cais do Porto · Lisboa" },
-              { t: "Reservas", v: "+351 21 4444 1998 · reserva@marea.pt" },
-              { t: "Horário", v: "Ter — Dom · 19h às 24h · Almoço aos sábados" },
+              { t: "Endereço", v: "Rua da Estrela, 187 · Praia Grande · Centro Histórico · São Luís — MA" },
+              { t: "Reservas", v: "+55 (98) 3232·1987 · WhatsApp (98) 98800·1987" },
+              { t: "Horário", v: "Ter — Dom · 12h às 16h · 19h às 23h30 · Fechado às segundas" },
             ].map((c) => (
               <div key={c.t} className="border-b border-[var(--border)] pb-6">
                 <dt className="text-[10px] uppercase tracking-[0.3em] text-[var(--gold)] mb-2">
@@ -71,7 +71,8 @@ export function Location() {
           </div>
           <div className="absolute bottom-6 left-6 glass rounded-2xl px-5 py-4">
             <div className="text-[10px] uppercase tracking-[0.3em] text-[var(--gold)]">Maréa</div>
-            <div className="font-display text-xl text-[var(--ice)] mt-1">Cais do Porto</div>
+            <div className="font-display text-xl text-[var(--ice)] mt-1">Praia Grande · São Luís</div>
+            <div className="text-[10px] text-[var(--ice)]/60 mt-1">Baía de São Marcos</div>
           </div>
         </motion.div>
       </div>
