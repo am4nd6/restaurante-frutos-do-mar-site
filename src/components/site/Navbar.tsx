@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const links = [
-  { label: "História", href: "#historia" },
-  { label: "Especialidades", href: "#especialidades" },
+  { label: "Nossa Casa", href: "#historia" },
+  { label: "Do Mangue", href: "#especialidades" },
   { label: "Galeria", href: "#galeria" },
-  { label: "Menu", href: "#menu" },
-  { label: "Contato", href: "#contato" },
+  { label: "Cardápio", href: "#menu" },
+  { label: "Visite", href: "#contato" },
 ];
 
 export function Navbar() {
