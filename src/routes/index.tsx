@@ -14,7 +14,7 @@ import { Footer } from "@/components/site/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Maréa · Cozinha Maranhense · São Luís — MA" },
+      { title: "Maréa" },
       {
         name: "description",
         content:

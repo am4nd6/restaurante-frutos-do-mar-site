@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { CrabIcon } from "./CrabIcon";
+import { FishIcon } from "./FishIcon";
 
 const links = [
   { label: "Início", href: "#top" },
@@ -59,7 +59,7 @@ export function Navbar() {
       >
         <a href="#top" className="flex items-center gap-2 group">
           <span className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[var(--gold)] to-[oklch(0.66_0.08_84)] text-[var(--abyss)] shadow-gold ring-1 ring-[var(--gold)]/30 transition-transform duration-500 group-hover:rotate-6 group-hover:scale-105">
-            <CrabIcon className="h-6 w-6" />
+            <FishIcon className="h-6 w-6" />
           </span>
           <span className="font-display text-xl tracking-[0.2em] text-[var(--ice)] group-hover:text-[var(--gold)] transition-colors">
             MARÉA

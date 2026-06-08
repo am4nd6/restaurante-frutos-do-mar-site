@@ -187,9 +187,7 @@ export function Hero() {
                 <div className="text-[9px] uppercase tracking-[0.3em] text-gold mb-1">
                   Assinatura do Chef
                 </div>
-                <div className="font-display text-lg text-ice">
-                  Pérolas do Maranhão
-                </div>
+                <div className="font-display text-lg text-ice">Pérolas do Maranhão</div>
                 <div className="mt-1 text-[10px] text-(--ice)/60">
                   Ostras frescas · camarão selecionado · flores comestíveis · ouro 24k
                 </div>

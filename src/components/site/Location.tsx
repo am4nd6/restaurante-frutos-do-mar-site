@@ -58,9 +58,8 @@ export function Location() {
                 <div>
                   <span className="text-ice">Terça a domingo</span>
                   <span className="block text-base text-(--ice)/65">
-                    · Almoço: 12h às 16h 
-                    <br /> 
-                    · Jantar: 19h às 23h30
+                    · Almoço: 12h às 16h
+                    <br />· Jantar: 19h às 23h30
                   </span>
                 </div>
                 <div className="text-base text-(--ice)/55">

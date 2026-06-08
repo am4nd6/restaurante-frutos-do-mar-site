@@ -17,10 +17,12 @@ const items = [
     img: "/src/assets/sururu.png",
     d: "Mariscos do litoral, abertos sobre brasa de carvão.",
   },
-  { n: "04", 
-    t: "Peixe-Pedra", 
-    img: "/src/assets/peixe.png", 
-    d: "Inteiro, escamado na brasa, com farofa d'água." },
+  {
+    n: "04",
+    t: "Peixe-Pedra",
+    img: "/src/assets/peixe.png",
+    d: "Inteiro, escamado na brasa, com farofa d'água.",
+  },
   {
     n: "05",
     t: "Polvo do Atol",

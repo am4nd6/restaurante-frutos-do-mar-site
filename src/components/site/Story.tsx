@@ -45,8 +45,7 @@ export function Story() {
             <span className="text-[10px] uppercase tracking-[0.4em] text-gold">Nossa Casa</span>
           </div>
           <h2 className="font-display text-5xl md:text-7xl leading-[1.05] text-ice">
-            Um casarão <span className="italic text-gold-gradient">na Praia Grande</span> desde
-            1987
+            Um casarão <span className="italic text-gold-gradient">na Praia Grande</span> desde 1987
           </h2>
           <div className="mt-10 space-y-6 text-(--ice)/70 text-lg leading-relaxed max-w-xl text-justify">
             <p>

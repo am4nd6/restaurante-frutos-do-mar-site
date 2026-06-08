@@ -1,5 +1,5 @@
 import { Facebook, Instagram, Twitter } from "lucide-react";
-import { CrabIcon } from "./CrabIcon";
+import { FishIcon } from "./FishIcon";
 
 const footerLinks = [
   { label: "Início", href: "#top" },
@@ -23,7 +23,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex items-center gap-3">
           <span className="grid h-9 w-9 place-items-center rounded-full bg-linear-to-br from-gold to-[oklch(0.66_0.08_84)] text-abyss shadow-gold ring-1 ring-(--gold)/30">
-            <CrabIcon className="h-6 w-6" />
+            <FishIcon className="h-6 w-6" />
           </span>
           <div>
             <div className="font-display text-lg tracking-[0.2em] text-ice">MARÉA</div>
