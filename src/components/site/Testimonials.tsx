@@ -13,7 +13,7 @@ const items = [
     r: "Chef · Guia Comer & Beber",
   },
   {
-    q: "Da farinha d'água ao jambu, cada detalhe é manejado com técnica e devoção. Uma das melhores mesas do Norte.",
+    q: "Da farinha d'água ao jambu, cada detalhe é manejado com técnica e devoção. Uma das melhores mesas do Nordeste.",
     a: "Carla Pernambuco",
     r: "Crítica Gastronômica · Folha",
   },
@@ -27,7 +27,7 @@ export function Testimonials() {
   }, []);
 
   return (
-    <section className="relative py-32 md:py-44 bg-[var(--ocean-deep)]/40">
+    <section className="relative py-20 md:py-28 bg-[var(--ocean-deep)]/40">
       <div className="mx-auto max-w-4xl px-6 md:px-10 text-center">
         <div className="flex items-center justify-center gap-3 mb-10">
           <span className="h-px w-12 bg-[var(--gold)]" />

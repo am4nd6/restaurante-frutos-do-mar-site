@@ -4,7 +4,7 @@ import { useState } from "react";
 export function Reserve() {
   const [sent, setSent] = useState(false);
   return (
-    <section id="reserva" className="relative py-32 md:py-48 overflow-hidden">
+    <section id="reserva" className="relative py-20 md:py-28 overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -80,10 +80,9 @@ export function Reserve() {
             </p>
             <button
               type="submit"
-              className="group relative inline-flex items-center gap-3 rounded-full bg-[var(--gold)] px-10 py-4 text-xs uppercase tracking-[0.3em] text-[var(--abyss)] font-semibold shadow-gold hover:scale-[1.02] transition-transform overflow-hidden"
+              className="inline-flex items-center gap-3 rounded-full bg-[var(--gold)] px-10 py-4 text-xs uppercase tracking-[0.3em] text-[var(--abyss)] font-semibold shadow-gold transition-transform hover:scale-[1.02]"
             >
-              <span className="relative">{sent ? "Recebido ✓" : "Confirmar Reserva"}</span>
-              <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+              {sent ? "Recebido ✓" : "Confirmar Reserva"}
             </button>
           </div>
         </motion.form>

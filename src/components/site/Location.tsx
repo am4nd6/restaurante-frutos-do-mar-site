@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export function Location() {
   return (
-    <section id="contato" className="relative py-32 md:py-40">
+    <section id="contato" className="relative py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6 md:px-10 grid lg:grid-cols-12 gap-12 items-stretch">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -12,26 +12,62 @@ export function Location() {
           className="lg:col-span-5"
         >
           <div className="flex items-center gap-3 mb-6">
-            <span className="h-px w-12 bg-[var(--gold)]" />
-            <span className="text-[10px] uppercase tracking-[0.4em] text-[var(--gold)]">Visite-nos</span>
+            <span className="h-px w-12 bg-gold" />
+            <span className="text-[10px] uppercase tracking-[0.4em] text-gold">Visite-nos</span>
           </div>
-          <h2 className="font-display text-5xl md:text-6xl text-[var(--ice)] leading-[1.05]">
+          <h2 className="font-display text-5xl md:text-6xl text-ice leading-[1.05]">
             No coração da <span className="italic text-gold-gradient">Praia Grande</span>.
           </h2>
 
-          <dl className="mt-12 space-y-8">
-            {[
-              { t: "Endereço", v: "Rua da Estrela, 187 · Praia Grande · Centro Histórico · São Luís — MA" },
-              { t: "Reservas", v: "+55 (98) 3232·1987 · WhatsApp (98) 98800·1987" },
-              { t: "Horário", v: "Ter — Dom · 12h às 16h · 19h às 23h30 · Fechado às segundas" },
-            ].map((c) => (
-              <div key={c.t} className="border-b border-[var(--border)] pb-6">
-                <dt className="text-[10px] uppercase tracking-[0.3em] text-[var(--gold)] mb-2">
-                  {c.t}
-                </dt>
-                <dd className="text-[var(--ice)] text-lg leading-relaxed">{c.v}</dd>
-              </div>
-            ))}
+          <dl className="mt-12 space-y-7">
+            <div className="border-b border-border pb-6">
+              <dt className="mb-2 text-[10px] uppercase tracking-[0.3em] text-gold">Endereço</dt>
+              <dd className="text-lg leading-relaxed text-ice">
+                Rua da Estrela, 187
+                <span className="block text-base text-(--ice)/60">
+                  Praia Grande · Centro Histórico · São Luís — MA
+                </span>
+              </dd>
+            </div>
+            <div className="border-b border-border pb-6">
+              <dt className="mb-3 text-[10px] uppercase tracking-[0.3em] text-gold">Reservas</dt>
+              <dd className="grid gap-3 text-ice sm:grid-cols-2">
+                <a
+                  href="tel:+559832321987"
+                  className="glass rounded-2xl px-4 py-3 transition-colors hover:text-gold"
+                >
+                  <span className="block text-[10px] uppercase tracking-[0.25em] text-(--ice)/45">
+                    Telefone
+                  </span>
+                  <span className="mt-1 block text-lg">+55 (98) 3232-1987</span>
+                </a>
+                <a
+                  href="https://wa.me/5598988001987"
+                  className="glass rounded-2xl px-4 py-3 transition-colors hover:text-gold"
+                >
+                  <span className="block text-[10px] uppercase tracking-[0.25em] text-(--ice)/45">
+                    WhatsApp
+                  </span>
+                  <span className="mt-1 block text-lg">(98) 98800-1987</span>
+                </a>
+              </dd>
+            </div>
+            <div className="border-b border-border pb-6">
+              <dt className="mb-3 text-[10px] uppercase tracking-[0.3em] text-gold">Horário</dt>
+              <dd className="space-y-2 text-lg leading-relaxed text-ice">
+                <div>
+                  <span className="text-ice">Terça a domingo</span>
+                  <span className="block text-base text-(--ice)/65">
+                    · Almoço: 12h às 16h 
+                    <br /> 
+                    · Jantar: 19h às 23h30
+                  </span>
+                </div>
+                <div className="text-base text-(--ice)/55">
+                  <span className="text-ice">Fechado:</span> Segundas-feiras
+                </div>
+              </dd>
+            </div>
           </dl>
         </motion.div>
 
@@ -40,39 +76,21 @@ export function Location() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="lg:col-span-7 relative rounded-[2rem] overflow-hidden min-h-[420px] shadow-luxe"
+          className="lg:col-span-7 relative min-h-105 overflow-hidden rounded-[2rem] shadow-luxe"
         >
-          {/* Stylized map */}
-          <div className="absolute inset-0 bg-[var(--ocean-deep)]">
-            <svg viewBox="0 0 800 600" className="absolute inset-0 h-full w-full opacity-60">
-              <defs>
-                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="oklch(0.78 0.09 85 / 0.15)" strokeWidth="0.5" />
-                </pattern>
-              </defs>
-              <rect width="800" height="600" fill="url(#grid)" />
-              <path
-                d="M0,300 Q200,250 400,320 T800,290 L800,600 L0,600 Z"
-                fill="oklch(0.42 0.05 200 / 0.4)"
-              />
-              <path
-                d="M0,320 Q200,280 400,340 T800,310"
-                fill="none"
-                stroke="oklch(0.78 0.09 85 / 0.4)"
-                strokeWidth="1.5"
-                strokeDasharray="4 6"
-              />
-              <circle cx="500" cy="280" r="8" fill="oklch(0.78 0.09 85)" />
-              <circle cx="500" cy="280" r="20" fill="oklch(0.78 0.09 85 / 0.2)">
-                <animate attributeName="r" values="20;40;20" dur="3s" repeatCount="indefinite" />
-                <animate attributeName="opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite" />
-              </circle>
-            </svg>
-          </div>
+          <iframe
+            title="Mapa do Maréa na Praia Grande, São Luís"
+            src="https://www.google.com/maps?q=Rua%20da%20Estrela%20187%2C%20Praia%20Grande%2C%20Centro%20Hist%C3%B3rico%2C%20S%C3%A3o%20Lu%C3%ADs%20MA&output=embed"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="absolute inset-0 h-full w-full border-0"
+          />
           <div className="absolute bottom-6 left-6 glass rounded-2xl px-5 py-4">
-            <div className="text-[10px] uppercase tracking-[0.3em] text-[var(--gold)]">Maréa</div>
-            <div className="font-display text-xl text-[var(--ice)] mt-1">Praia Grande · São Luís</div>
-            <div className="text-[10px] text-[var(--ice)]/60 mt-1">Baía de São Marcos</div>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-gold">Maréa</div>
+            <div className="font-display text-xl text-ice mt-1">Rua da Estrela, 187</div>
+            <div className="text-[10px] text-(--ice)/60 mt-1">
+              Praia Grande · Centro Histórico · São Luís — MA
+            </div>
           </div>
         </motion.div>
       </div>

@@ -1,22 +1,41 @@
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import shrimp from "@/assets/spec-shrimp.jpg";
-import lobster from "@/assets/spec-lobster.jpg";
 import crab from "@/assets/spec-crab.jpg";
-import oyster from "@/assets/spec-oyster.jpg";
-import octopus from "@/assets/spec-octopus.jpg";
-import fish from "@/assets/spec-fish.jpg";
 
 const items = [
   { n: "01", t: "Caranguejo-uçá", img: crab, d: "Do mangue da Raposa, no leite de coco e cuxá." },
-  { n: "02", t: "Camarão da Baía", img: shrimp, d: "Camarão-rosa de São Marcos, na moranga com jambu." },
-  { n: "03", t: "Sururu & Ostras", img: oyster, d: "Mariscos do litoral, abertos sobre brasa de carvão." },
-  { n: "04", t: "Peixe-Pedra", img: fish, d: "Inteiro, escamado na brasa, com farofa d'água." },
-  { n: "05", t: "Polvo do Atol", img: octopus, d: "Grelhado em folha de bananeira e azeite de dendê." },
-  { n: "06", t: "Lagosta de Tutoia", img: lobster, d: "Ao molho de pimenta-de-cheiro e manteiga de garrafa." },
+  {
+    n: "02",
+    t: "Camarão da Baía",
+    img: shrimp,
+    d: "Camarão-rosa de São Marcos, na moranga com jambu.",
+  },
+  {
+    n: "03",
+    t: "Sururu & Ostras",
+    img: "/src/assets/sururu.png",
+    d: "Mariscos do litoral, abertos sobre brasa de carvão.",
+  },
+  { n: "04", 
+    t: "Peixe-Pedra", 
+    img: "/src/assets/peixe.png", 
+    d: "Inteiro, escamado na brasa, com farofa d'água." },
+  {
+    n: "05",
+    t: "Polvo do Atol",
+    img: "/src/assets/polvo.png",
+    d: "Grelhado em folha de bananeira e azeite de dendê.",
+  },
+  {
+    n: "06",
+    t: "Lagosta de Tutoia",
+    img: "/src/assets/lagosta.png",
+    d: "Ao molho de pimenta-de-cheiro e manteiga de garrafa.",
+  },
 ];
 
-function Card({ item, i }: { item: typeof items[number]; i: number }) {
+function Card({ item, i }: { item: (typeof items)[number]; i: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
@@ -40,24 +59,24 @@ function Card({ item, i }: { item: typeof items[number]; i: number }) {
         transform: `perspective(1000px) rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
         transition: "transform 0.5s ease-out",
       }}
-      className="group relative overflow-hidden rounded-[1.75rem] bg-gradient-to-b from-[var(--ocean-deep)]/60 to-[var(--abyss)]/80 border border-[var(--gold)]/10 hover:border-[var(--gold)]/40 transition-colors duration-700"
+      className="group relative overflow-hidden rounded-[1.75rem] bg-linear-to-b from-(--ocean-deep)/60 to-(--abyss)/80 border border-(--gold)/10 hover:border-(--gold)/40 transition-colors duration-700"
     >
-      <div className="aspect-[4/5] overflow-hidden">
+      <div className="aspect-4/5 overflow-hidden">
         <img
           src={item.img}
           alt={item.t}
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--abyss)] via-[var(--abyss)]/30 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-abyss via-(--abyss)/30 to-transparent" />
       </div>
       {/* shine */}
       <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_var(--mx)_var(--my),oklch(0.78_0.09_85/0.18),transparent_50%)]" />
 
       <div className="absolute inset-x-0 bottom-0 p-7">
-        <div className="text-[10px] tracking-[0.4em] text-[var(--gold)]">{item.n}</div>
-        <h3 className="mt-2 font-display text-3xl text-[var(--ice)]">{item.t}</h3>
-        <p className="mt-2 text-sm text-[var(--ice)]/60 max-w-[80%]">{item.d}</p>
+        <div className="text-[10px] tracking-[0.4em] text-gold">{item.n}</div>
+        <h3 className="mt-2 font-display text-3xl text-ice">{item.t}</h3>
+        <p className="mt-2 text-sm text-(--ice)/60 max-w-[80%]">{item.d}</p>
       </div>
     </motion.div>
   );
@@ -65,24 +84,22 @@ function Card({ item, i }: { item: typeof items[number]; i: number }) {
 
 export function Specialties() {
   return (
-    <section id="especialidades" className="relative py-32 md:py-48">
+    <section id="especialidades" className="relative py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-              <span className="h-px w-12 bg-[var(--gold)]" />
-              <span className="text-[10px] uppercase tracking-[0.4em] text-[var(--gold)]">
-                Do Mangue à Mesa
-              </span>
+        <div className="mb-14 max-w-5xl">
+          <div className="grid gap-7 lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,0.55fr)] lg:items-end">
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="h-px w-12 bg-gold" />
+                <span className="text-[10px] uppercase tracking-[0.4em] text-gold">
+                  Do Mangue à Mesa
+                </span>
+              </div>
+              <h2 className="font-display text-5xl md:text-7xl text-ice max-w-3xl leading-[1.05]">
+                Cozinha de maré, brasa e <span className="italic text-gold-gradient">mangue</span>
+              </h2>
             </div>
-            <h2 className="font-display text-5xl md:text-7xl text-[var(--ice)] max-w-2xl leading-[1.05]">
-              O que a <span className="italic text-gold-gradient">Baía de São Marcos</span> nos dá.
-            </h2>
           </div>
-          <p className="text-[var(--ice)]/60 max-w-md">
-            Seis especialidades nascidas no encontro do rio com o mar, traduzidas pela cozinha
-            ancestral maranhense e a técnica autoral da casa.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

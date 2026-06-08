@@ -16,7 +16,10 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="top" className="relative min-h-screen flex items-center pt-32 pb-24 overflow-hidden">
+    <section
+      id="top"
+      className="relative min-h-screen flex items-center pt-32 pb-24 overflow-hidden"
+    >
       {/* ambient glow */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -30,7 +33,7 @@ export function Hero() {
         {Array.from({ length: 18 }).map((_, i) => (
           <span
             key={i}
-            className="absolute block rounded-full bg-[var(--ice)]/20 animate-bubble"
+            className="absolute block rounded-full bg-(--ice)/20 animate-bubble"
             style={{
               left: `${(i * 53) % 100}%`,
               width: `${3 + (i % 6)}px`,
@@ -58,8 +61,8 @@ export function Hero() {
             transition={{ duration: 0.9 }}
             className="flex items-center gap-3 mb-8"
           >
-            <span className="h-px w-12 bg-[var(--gold)]" />
-            <span className="text-[10px] uppercase tracking-[0.4em] text-[var(--gold)]">
+            <span className="h-px w-12 bg-gold" />
+            <span className="text-[10px] uppercase tracking-[0.4em] text-gold">
               São Luís · Maranhão · Desde 1987
             </span>
           </motion.div>
@@ -67,17 +70,17 @@ export function Hero() {
           <motion.h1
             variants={{ hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-[var(--ice)]"
+            className="font-display text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-ice"
           >
             A maré
             <br />
-            do <span className="italic text-gold-gradient">Maranhão</span>.
+            do <span className="italic text-gold-gradient">Maranhão</span>
           </motion.h1>
 
           <motion.p
             variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
             transition={{ duration: 0.9 }}
-            className="mt-8 max-w-xl text-[var(--ice)]/70 text-lg leading-relaxed"
+            className="mt-8 max-w-xl text-(--ice)/70 text-lg leading-relaxed text-justify"
           >
             No coração do centro histórico de São Luís, num casarão de azulejos portugueses,
             servimos o que a Baía de São Marcos oferece todo amanhecer — caranguejo do mangue,
@@ -87,36 +90,45 @@ export function Hero() {
           <motion.div
             variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
             transition={{ duration: 0.9 }}
-            className="mt-12 flex flex-wrap items-center gap-6"
+            className="mt-12 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center"
           >
             <a
               href="#reserva"
-              className="group relative inline-flex items-center gap-3 rounded-full bg-[var(--gold)] px-8 py-4 text-xs uppercase tracking-[0.3em] text-[var(--abyss)] font-semibold shadow-gold hover:scale-[1.02] transition-transform duration-500"
+              className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-gold px-8 py-4 text-center text-xs font-semibold uppercase tracking-[0.3em] text-abyss shadow-gold transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_22px_60px_-22px_var(--gold)]"
             >
               <span>Reservar Experiência</span>
               <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
-                <path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                <path
+                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
               </svg>
-              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              <span className="absolute inset-0 rounded-full bg-linear-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             </a>
-            <a href="#menu" className="text-xs uppercase tracking-[0.3em] text-[var(--ice)]/80 hover:text-[var(--gold)] transition-colors">
-              Explorar o Menu →
+            <a
+              href="#menu"
+              className="group inline-flex items-center justify-center gap-3 rounded-full border border-(--ice)/15 bg-white/3 px-8 py-4 text-center text-xs uppercase tracking-[0.3em] text-(--ice)/80 backdrop-blur-sm transition-all duration-500 hover:border-(--gold)/60 hover:bg-(--gold)/10 hover:text-gold"
+            >
+              <span className="h-px w-8 bg-(--gold)/60 transition-all duration-500 group-hover:w-12" />
+              <span>Explorar Menu</span>
             </a>
           </motion.div>
 
           <motion.div
             variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
             transition={{ duration: 1.2 }}
-            className="mt-16 grid grid-cols-3 gap-6 max-w-md"
+            className="mt-3 grid max-w-md grid-cols-3 gap-5 border-t border-(--ice)/10 pt-3"
           >
             {[
               { n: "37", l: "Anos na Praia Grande" },
-              { n: "★★★", l: "Veja Comer & Beber" },
+              { n: "★★★★", l: "Venha Comer & Beber" },
               { n: "06h", l: "Chegada do peixe" },
             ].map((s) => (
               <div key={s.l}>
-                <div className="font-display text-3xl text-[var(--gold)]">{s.n}</div>
-                <div className="mt-1 text-[10px] uppercase tracking-[0.25em] text-[var(--ice)]/50">
+                <div className="font-display text-3xl text-gold">{s.n}</div>
+                <div className="mt-1 text-[10px] uppercase tracking-[0.25em] text-(--ice)/50">
                   {s.l}
                 </div>
               </div>
@@ -137,8 +149,8 @@ export function Hero() {
         >
           <div className="relative aspect-square">
             {/* halo */}
-            <div className="absolute -inset-10 rounded-full bg-[var(--gold)]/10 blur-3xl animate-float-slow" />
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[var(--ocean)]/40 to-transparent blur-2xl" />
+            <div className="absolute -inset-10 rounded-full bg-(--gold)/10 blur-3xl animate-float-slow" />
+            <div className="absolute inset-0 rounded-full bg-linear-to-br from-(--ocean)/40 to-transparent blur-2xl" />
 
             <motion.div
               animate={{ y: [0, -18, 0] }}
@@ -148,48 +160,51 @@ export function Hero() {
               <img
                 src={heroDish}
                 alt="Prato exclusivo Maréa com ostras, langostino e folhas de ouro"
-                className="h-full w-full object-cover rounded-full shadow-luxe ring-1 ring-[var(--gold)]/30"
+                className="h-full w-full object-cover rounded-full shadow-luxe ring-1 ring-(--gold)/30"
                 width={1024}
                 height={1024}
               />
               {/* orbit gold ring */}
-              <div className="pointer-events-none absolute -inset-3 rounded-full border border-[var(--gold)]/20" />
-              <div className="pointer-events-none absolute -inset-8 rounded-full border border-[var(--gold)]/10" />
+              <div className="pointer-events-none absolute -inset-3 rounded-full border border-(--gold)/20" />
+              <div className="pointer-events-none absolute -inset-8 rounded-full border border-(--gold)/10" />
             </motion.div>
 
             {/* floating badge */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 20, y: 10 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 3.4, duration: 0.8 }}
-              className="absolute -left-6 bottom-12 glass rounded-2xl p-4 max-w-[200px]"
+              transition={{
+                opacity: { delay: 3.4, duration: 0.8 },
+                x: { delay: 3.4, duration: 0.8 },
+              }}
+              className="absolute -left-2 bottom-6 max-w-50 sm:-left-6 sm:bottom-12"
             >
-              <div className="text-[9px] uppercase tracking-[0.3em] text-[var(--gold)] mb-1">
-                Prato do Chef
-              </div>
-              <div className="font-display text-lg text-[var(--ice)]">Caranguejada Reinado</div>
-              <div className="mt-1 text-[10px] text-[var(--ice)]/60">
-                Caranguejo-uçá · arroz de cuxá · pimenta de cheiro
-              </div>
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: [0.45, 0, 0.55, 1] }}
+                className="rounded-2xl glass p-4 will-change-transform"
+              >
+                <div className="text-[9px] uppercase tracking-[0.3em] text-gold mb-1">
+                  Assinatura do Chef
+                </div>
+                <div className="font-display text-lg text-ice">
+                  Pérolas do Maranhão
+                </div>
+                <div className="mt-1 text-[10px] text-(--ice)/60">
+                  Ostras frescas · camarão selecionado · flores comestíveis · ouro 24k
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </motion.div>
       </div>
 
-      {/* scroll cue */}
-      <motion.div
+      <motion.span
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 4, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      >
-        <span className="text-[10px] uppercase tracking-[0.4em] text-[var(--ice)]/50">scroll</span>
-        <motion.span
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="h-10 w-px bg-gradient-to-b from-[var(--gold)] to-transparent"
-        />
-      </motion.div>
+        animate={{ opacity: 1, y: [0, 8, 0] }}
+        transition={{ opacity: { delay: 4, duration: 1 }, y: { duration: 2, repeat: Infinity } }}
+        className="absolute bottom-8 left-1/2 h-10 w-px -translate-x-1/2 bg-linear-to-b from-gold to-transparent"
+      />
     </section>
   );
 }

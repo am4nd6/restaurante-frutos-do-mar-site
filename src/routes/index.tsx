@@ -15,9 +15,17 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Maréa · Cozinha Maranhense · São Luís — MA" },
-      { name: "description", content: "Restaurante premium na Praia Grande, no Centro Histórico de São Luís. Caranguejo do mangue, peixada do cais e o tempero ancestral do Maranhão." },
+      {
+        name: "description",
+        content:
+          "Restaurante premium na Praia Grande, no Centro Histórico de São Luís. Caranguejo do mangue, peixada do cais e o tempero ancestral do Maranhão.",
+      },
       { property: "og:title", content: "Maréa · Cozinha Maranhense · São Luís — MA" },
-      { property: "og:description", content: "Sabores da Baía de São Marcos num casarão azulejado da Praia Grande. Reserve sua mesa." },
+      {
+        property: "og:description",
+        content:
+          "Sabores da Baía de São Marcos num casarão azulejado da Praia Grande. Reserve sua mesa.",
+      },
     ],
   }),
   component: Index,
@@ -34,8 +42,8 @@ function Index() {
       <Gallery />
       <Menu />
       <Testimonials />
-      <Reserve />
       <Location />
+      <Reserve />
       <Footer />
     </main>
   );

@@ -1,4 +1,10 @@
-export function WaveDivider({ flip = false, className = "" }: { flip?: boolean; className?: string }) {
+export function WaveDivider({
+  flip = false,
+  className = "",
+}: {
+  flip?: boolean;
+  className?: string;
+}) {
   return (
     <div className={`relative w-full overflow-hidden leading-[0] ${className}`} aria-hidden>
       <svg
