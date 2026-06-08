@@ -19,7 +19,7 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 10);
 
       const marker = window.scrollY + window.innerHeight * 0.35;
       const current = trackedSections.reduce((active, link) => {
@@ -49,12 +49,14 @@ export function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.9, delay: 2.3, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled ? "py-3" : "py-6"
+        scrolled
+          ? "py-3 bg-(--abyss)/85 backdrop-blur-xl shadow-lg shadow-black/15"
+          : "py-6 bg-transparent"
       }`}
     >
       <div
         className={`mx-auto max-w-7xl px-6 md:px-10 flex items-center justify-between transition-all duration-500 ${
-          scrolled ? "glass rounded-full mx-4 md:mx-auto py-3 px-6" : ""
+          scrolled ? "py-1" : ""
         }`}
       >
         <a href="#top" className="flex items-center gap-2 group">
