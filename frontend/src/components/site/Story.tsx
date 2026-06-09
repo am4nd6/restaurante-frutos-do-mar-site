@@ -4,13 +4,13 @@ import interior from "@/assets/restaurant-interior.jpg";
 export function Story() {
   return (
     <section id="historia" className="relative py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-6 md:px-10 grid lg:grid-cols-12 gap-16 items-center">
+      <div className="site-container mx-auto max-w-7xl px-6 md:px-10 grid min-[1200px]:grid-cols-12 gap-16 items-center">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="lg:col-span-5 relative"
+          className="min-[1200px]:col-span-5 relative"
         >
           <div className="group relative aspect-3/4 overflow-hidden rounded-[2rem] shadow-luxe">
             <img
@@ -38,7 +38,7 @@ export function Story() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1 }}
-          className="lg:col-span-7"
+          className="min-[1200px]:col-span-7"
         >
           <div className="flex items-center gap-3 mb-6">
             <span className="h-px w-12 bg-gold" />

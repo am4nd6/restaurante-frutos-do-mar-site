@@ -7,7 +7,7 @@ import g4 from "@/assets/gallery-4.jpg";
 export function Gallery() {
   return (
     <section id="galeria" className="relative py-20 md:py-28 bg-(--ocean-deep)/40">
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
+      <div className="site-container mx-auto max-w-7xl px-6 md:px-10">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <div className="flex items-center justify-center gap-3 mb-6">
             <span className="h-px w-12 bg-gold" />
@@ -21,20 +21,23 @@ export function Gallery() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-12 gap-4 md:gap-6">
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 min-[390px]:grid-cols-2 md:gap-6">
           {[
-            { src: g2, cls: "col-span-12 md:col-span-7 aspect-[16/10]", alt: "Chef emplatando" },
-            {
-              src: g1,
-              cls: "col-span-12 md:col-span-5 aspect-[4/5] md:aspect-auto",
-              alt: "Pasta com vongole",
-            },
-            { src: g3, cls: "col-span-6 md:col-span-4 aspect-square", alt: "Champagne com ostras" },
-            { src: g4, cls: "col-span-6 md:col-span-4 aspect-square", alt: "Vieiras seladas" },
             {
               src: g2,
-              cls: "col-span-12 md:col-span-4 aspect-square",
-              alt: "Detalhe gastronômico",
+              alt: "Chef emplatando",
+            },
+            {
+              src: g1,
+              alt: "Pasta com vongole",
+            },
+            {
+              src: g3,
+              alt: "Champagne com ostras",
+            },
+            {
+              src: g4,
+              alt: "Vieiras seladas",
             },
           ].map((it, i) => (
             <motion.figure
@@ -43,7 +46,7 @@ export function Gallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.9, delay: i * 0.1 }}
-              className={`group relative overflow-hidden rounded-[1.5rem] ${it.cls}`}
+              className="group relative aspect-[4/3] overflow-hidden rounded-[1.5rem]"
             >
               <img
                 src={it.src}

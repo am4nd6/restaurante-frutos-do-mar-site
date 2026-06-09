@@ -3,20 +3,20 @@ import { motion } from "framer-motion";
 export function Location() {
   return (
     <section id="contato" className="relative py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-6 md:px-10 grid lg:grid-cols-12 gap-12 items-stretch">
+      <div className="site-container mx-auto max-w-7xl px-6 md:px-10 grid min-[1200px]:grid-cols-12 gap-12 items-stretch">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="lg:col-span-5"
+          className="min-[1200px]:col-span-5"
         >
           <div className="flex items-center gap-3 mb-6">
             <span className="h-px w-12 bg-gold" />
             <span className="text-[10px] uppercase tracking-[0.4em] text-gold">Visite-nos</span>
           </div>
           <h2 className="font-display text-5xl md:text-6xl text-ice leading-[1.05]">
-            No coração da <span className="italic text-gold-gradient">Praia Grande</span>.
+            No coração da <span className="italic text-gold-gradient">Praia Grande</span>
           </h2>
 
           <dl className="mt-12 space-y-7">
@@ -75,7 +75,7 @@ export function Location() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="lg:col-span-7 relative min-h-105 overflow-hidden rounded-[2rem] shadow-luxe"
+          className="min-[1200px]:col-span-7 relative min-h-105 overflow-hidden rounded-[2rem] shadow-luxe"
         >
           <iframe
             title="Mapa do Maréa na Praia Grande, São Luís"

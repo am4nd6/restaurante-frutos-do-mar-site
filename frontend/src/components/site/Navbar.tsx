@@ -16,6 +16,7 @@ const trackedSections = [...links, { label: "Reserva", href: "#reserva" }];
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("#top");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,7 +56,7 @@ export function Navbar() {
       }`}
     >
       <div
-        className={`mx-auto max-w-7xl px-6 md:px-10 flex items-center justify-between transition-all duration-500 ${
+        className={`mx-auto max-w-7xl px-6 md:px-10 flex items-center justify-between gap-4 transition-all duration-500 ${
           scrolled ? "py-1" : ""
         }`}
       >
@@ -68,7 +69,7 @@ export function Navbar() {
           </span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden min-[960px]:flex items-center gap-10">
           {links.map((l) => {
             const active = activeSection === l.href;
 
@@ -101,18 +102,58 @@ export function Navbar() {
           })}
         </nav>
 
-        <a
-          href="#reserva"
-          aria-current={activeSection === "#reserva" ? "page" : undefined}
-          className={`relative inline-flex h-10 max-h-10 items-center justify-center gap-2 overflow-hidden rounded-full border px-5 text-[10px] uppercase tracking-[0.3em] shadow-[0_0_0_1px_oklch(1_0_0_/_0.03)] transition-colors duration-300 [contain:paint] hover:border-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--abyss)] ${
-            activeSection === "#reserva"
-              ? "border-[var(--gold)] bg-[var(--gold)] text-[var(--abyss)]"
-              : "border-[var(--gold)]/50 bg-[var(--gold)]/5 text-[var(--ice)]"
-          }`}
-        >
-          Reservar Mesa
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            href="#reserva"
+            aria-current={activeSection === "#reserva" ? "page" : undefined}
+            className={`relative hidden h-10 max-h-10 items-center justify-center gap-2 overflow-hidden rounded-full border px-5 text-[10px] uppercase tracking-[0.3em] shadow-[0_0_0_1px_oklch(1_0_0_/_0.03)] transition-colors duration-300 [contain:paint] min-[390px]:inline-flex hover:border-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--abyss)] ${
+              activeSection === "#reserva"
+                ? "border-[var(--gold)] bg-[var(--gold)] text-[var(--abyss)]"
+                : "border-[var(--gold)]/50 bg-[var(--gold)]/5 text-[var(--ice)]"
+            }`}
+          >
+            Reservar Mesa
+          </a>
+          <button
+            type="button"
+            aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((open) => !open)}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-(--gold)/40 bg-(--gold)/5 text-(--ice) transition-colors hover:border-(--gold) hover:text-gold min-[960px]:hidden"
+          >
+            <span className="sr-only">Menu</span>
+            <span className="relative h-3.5 w-5">
+              <span
+                className={`absolute left-0 top-0 h-px w-full bg-current transition-transform ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`}
+              />
+              <span
+                className={`absolute left-0 top-[7px] h-px w-full bg-current transition-opacity ${menuOpen ? "opacity-0" : ""}`}
+              />
+              <span
+                className={`absolute bottom-0 left-0 h-px w-full bg-current transition-transform ${menuOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
+              />
+            </span>
+          </button>
+        </div>
       </div>
+      {menuOpen && (
+        <nav className="mx-auto mt-2 grid max-w-7xl gap-2 px-4 pb-4 min-[390px]:px-6 min-[960px]:hidden">
+          {[...links, { label: "Reservar", href: "#reserva" }].map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className={`rounded-2xl border px-4 py-3 text-center text-[11px] uppercase tracking-[0.24em] transition-colors ${
+                activeSection === link.href
+                  ? "border-(--gold) bg-(--gold) text-(--abyss)"
+                  : "border-(--ice)/10 bg-(--abyss)/80 text-(--ice)/75 hover:border-(--gold)/50 hover:text-gold"
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      )}
     </motion.header>
   );
 }

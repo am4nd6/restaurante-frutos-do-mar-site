@@ -21,10 +21,12 @@ const items = [
 
 export function Testimonials() {
   const [i, setI] = useState(0);
+  const next = () => setI((x) => (x + 1) % items.length);
+
   useEffect(() => {
-    const t = setInterval(() => setI((x) => (x + 1) % items.length), 6000);
+    const t = setInterval(() => setI((x) => (x + 1) % items.length), 3000);
     return () => clearInterval(t);
-  }, []);
+  }, [i]);
 
   return (
     <section className="relative py-20 md:py-28 bg-(--ocean-deep)/40">
@@ -37,17 +39,20 @@ export function Testimonials() {
 
         <div className="relative min-h-65 md:min-h-55">
           <AnimatePresence mode="wait">
-            <motion.blockquote
+            <motion.button
               key={i}
+              type="button"
+              onClick={next}
+              aria-label="Avançar depoimento"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.8 }}
-              className="glass rounded-[2rem] p-10 md:p-14"
+              className="glass w-full cursor-pointer rounded-[2rem] p-10 text-center transition-colors hover:border-(--gold)/30 md:p-14"
             >
-              <div className="font-display text-2xl md:text-4xl italic text-ice leading-[1.3]">
+              <blockquote className="font-display text-2xl md:text-4xl italic text-ice leading-[1.3]">
                 "{items[i].q}"
-              </div>
+              </blockquote>
               <div className="mt-8 flex items-center justify-center gap-4">
                 <div className="h-px w-8 bg-gold" />
                 <div>
@@ -58,7 +63,7 @@ export function Testimonials() {
                 </div>
                 <div className="h-px w-8 bg-gold" />
               </div>
-            </motion.blockquote>
+            </motion.button>
           </AnimatePresence>
         </div>
 

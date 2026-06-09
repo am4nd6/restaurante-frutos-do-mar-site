@@ -406,7 +406,7 @@ export function Reserve() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -8, scale: 0.96 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-full mt-2 z-50 w-70 origin-top-left"
+                  className="absolute top-full mt-2 z-50 w-[min(17.5rem,calc(100vw-2rem))] origin-top-left"
                 >
                   <div className="glass rounded-2xl p-4 border border-(--gold)/20 shadow-2xl bg-(--abyss)/95 backdrop-blur-xl">
                     <div className="flex items-center justify-between mb-4">
@@ -416,7 +416,7 @@ export function Reserve() {
                           e.stopPropagation();
                           navMonth(-1);
                         }}
-                        className="flex items-center justify-center w-8 h-8 rounded-full text-(--gold)/60 hover:text-gold hover:bg-(--gold)/10 transition-all"
+                        className="flex min-h-11 min-w-11 items-center justify-center rounded-full text-(--gold)/60 hover:text-gold hover:bg-(--gold)/10 transition-all"
                       >
                         <svg
                           className="w-4 h-4"
@@ -437,7 +437,7 @@ export function Reserve() {
                           e.stopPropagation();
                           navMonth(1);
                         }}
-                        className="flex items-center justify-center w-8 h-8 rounded-full text-(--gold)/60 hover:text-gold hover:bg-(--gold)/10 transition-all"
+                        className="flex min-h-11 min-w-11 items-center justify-center rounded-full text-(--gold)/60 hover:text-gold hover:bg-(--gold)/10 transition-all"
                       >
                         <svg
                           className="w-4 h-4"
@@ -561,7 +561,7 @@ export function Reserve() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -8, scale: 0.96 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-full mt-2 z-50 w-60 origin-top-left"
+                  className="absolute top-full mt-2 z-50 w-[min(15rem,calc(100vw-2rem))] origin-top-left"
                 >
                   <div className="glass rounded-2xl p-5 border border-(--gold)/20 shadow-2xl bg-(--abyss)/95 backdrop-blur-xl">
                     {/* Display */}
@@ -703,7 +703,7 @@ export function Reserve() {
               type="button"
               onClick={() => adjustPeople(-1)}
               disabled={Number(val || 1) <= 1}
-              className={`flex items-center justify-center w-9 h-9 rounded-full border transition-all duration-300 ${
+              className={`flex min-h-11 min-w-11 items-center justify-center rounded-full border transition-all duration-300 ${
                 Number(val || 1) <= 1
                   ? "border-(--ice)/10 text-(--ice)/20 cursor-not-allowed"
                   : "border-(--gold)/30 text-(--gold)/70 hover:border-gold hover:text-gold hover:bg-(--gold)/10 cursor-pointer active:scale-90"
@@ -738,7 +738,7 @@ export function Reserve() {
               type="button"
               onClick={() => adjustPeople(1)}
               disabled={Number(val || 1) >= 20}
-              className={`flex items-center justify-center w-9 h-9 rounded-full border transition-all duration-300 ${
+              className={`flex min-h-11 min-w-11 items-center justify-center rounded-full border transition-all duration-300 ${
                 Number(val || 1) >= 20
                   ? "border-(--ice)/10 text-(--ice)/20 cursor-not-allowed"
                   : "border-(--gold)/30 text-(--gold)/70 hover:border-gold hover:text-gold hover:bg-(--gold)/10 cursor-pointer active:scale-90"
@@ -888,7 +888,7 @@ export function Reserve() {
             <span className="h-px w-12 bg-gold" />
           </div>
           <h2 className="font-display text-5xl md:text-7xl text-ice leading-[1.05]">
-            Reserve sua mesa <span className="italic text-gold-gradient">na Ilha</span>.
+            Reserve sua mesa <span className="italic text-gold-gradient">na Ilha</span>
           </h2>
         </motion.div>
 

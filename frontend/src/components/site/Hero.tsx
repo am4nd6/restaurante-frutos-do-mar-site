@@ -45,7 +45,7 @@ export function Hero() {
         ))}
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 md:px-10 grid lg:grid-cols-12 gap-10 items-center w-full">
+      <div className="site-container relative mx-auto max-w-7xl px-6 md:px-10 grid min-[1200px]:grid-cols-12 gap-10 items-center w-full">
         {/* text */}
         <motion.div
           initial="hidden"
@@ -54,7 +54,7 @@ export function Hero() {
             hidden: {},
             show: { transition: { staggerChildren: 0.18, delayChildren: 2.4 } },
           }}
-          className="lg:col-span-7 relative z-10"
+          className="min-[1200px]:col-span-7 relative z-10"
         >
           <motion.div
             variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
@@ -90,7 +90,7 @@ export function Hero() {
           <motion.div
             variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
             transition={{ duration: 0.9 }}
-            className="mt-12 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center"
+            className="mt-12 flex flex-col items-stretch gap-4 min-[600px]:flex-row min-[600px]:items-center"
           >
             <a
               href="#reserva"
@@ -141,7 +141,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.85, y: 60 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1.6, delay: 2.5, ease: [0.22, 1, 0.36, 1] }}
-          className="lg:col-span-5 relative"
+          className="min-[1200px]:col-span-5 relative"
           style={{
             transform: `perspective(1200px) rotateY(${mouse.x * 4}deg) rotateX(${-mouse.y * 4}deg)`,
             transition: "transform 0.4s ease-out",

@@ -87,7 +87,7 @@ function Card({ item, i }: { item: (typeof items)[number]; i: number }) {
 export function Specialties() {
   return (
     <section id="especialidades" className="relative py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
+      <div className="site-container mx-auto max-w-7xl px-6 md:px-10">
         <div className="mb-14 max-w-5xl">
           <div className="grid gap-7 lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,0.55fr)] lg:items-end">
             <div>
@@ -104,7 +104,7 @@ export function Specialties() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 min-[600px]:grid-cols-2 min-[1200px]:grid-cols-3 gap-6">
           {items.map((it, i) => (
             <Card key={it.t} item={it} i={i} />
           ))}
