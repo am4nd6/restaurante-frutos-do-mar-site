@@ -566,11 +566,11 @@ export function Reserve() {
                   <div className="glass rounded-2xl p-5 border border-(--gold)/20 shadow-2xl bg-(--abyss)/95 backdrop-blur-xl">
                     {/* Display */}
                     <div className="flex items-center justify-center gap-2 mb-5">
-                      <span className="font-display text-4xl tracking-[0.05em] text-ice">
+                      <span className="font-display text-4xl tracking-wider text-ice">
                         {tempHour}
                       </span>
                       <span className="font-display text-4xl text-gold animate-pulse">:</span>
-                      <span className="font-display text-4xl tracking-[0.05em] text-ice">
+                      <span className="font-display text-4xl tracking-wider text-ice">
                         {tempMin}
                       </span>
                     </div>

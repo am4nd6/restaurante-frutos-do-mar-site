@@ -92,10 +92,10 @@ export function Navbar() {
         }`}
       >
         <a href="#top" className="flex items-center gap-2 group">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[var(--gold)] to-[oklch(0.66_0.08_84)] text-[var(--abyss)] shadow-gold ring-1 ring-[var(--gold)]/30 transition-transform duration-500 group-hover:rotate-6 group-hover:scale-105">
+          <span className="grid h-9 w-9 place-items-center rounded-full bg-linear-to-br from-gold to-[oklch(0.66_0.08_84)] text-abyss shadow-gold ring-1 ring-gold/30 transition-transform duration-500 group-hover:rotate-6 group-hover:scale-105">
             <FishIcon className="h-6 w-6" />
           </span>
-          <span className="font-display text-xl tracking-[0.2em] text-[var(--ice)] group-hover:text-[var(--gold)] transition-colors">
+          <span className="font-display text-xl tracking-[0.2em] text-ice group-hover:text-gold transition-colors">
             MARÉA
           </span>
         </a>
@@ -110,12 +110,12 @@ export function Navbar() {
                 href={l.href}
                 aria-current={active ? "page" : undefined}
                 className={`group relative whitespace-nowrap text-xs uppercase tracking-[0.2em] transition-colors duration-300 xl:tracking-[0.25em] ${
-                  active ? "text-[var(--gold)]" : "text-[var(--ice)]/70 hover:text-[var(--gold)]"
+                  active ? "text-gold" : "text-ice/70 hover:text-gold"
                 }`}
               >
                 {l.label}
                 <span
-                  className={`absolute -bottom-2 left-1/2 h-px -translate-x-1/2 bg-[var(--gold)] transition-all duration-500 ${
+                  className={`absolute -bottom-2 left-1/2 h-px -translate-x-1/2 bg-gold transition-all duration-500 ${
                     active
                       ? "w-full opacity-100"
                       : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
@@ -124,7 +124,7 @@ export function Navbar() {
                 {active && (
                   <motion.span
                     layoutId="nav-active-dot"
-                    className="absolute -bottom-[11px] left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-[var(--gold)] shadow-gold"
+                    className="absolute -bottom-2.75 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-gold shadow-gold"
                     transition={{ type: "spring", stiffness: 420, damping: 34 }}
                   />
                 )}
@@ -137,10 +137,10 @@ export function Navbar() {
           <a
             href="#reserva"
             aria-current={activeSection === "#reserva" ? "page" : undefined}
-            className={`relative hidden h-10 max-h-10 items-center justify-center gap-2 overflow-hidden rounded-full border px-5 text-[10px] uppercase tracking-[0.3em] whitespace-nowrap shadow-[0_0_0_1px_oklch(1_0_0_/_0.03)] transition-colors duration-300 [contain:paint] min-[390px]:inline-flex hover:border-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--abyss)] ${
+            className={`relative hidden h-10 max-h-10 items-center justify-center gap-2 overflow-hidden rounded-full border px-5 text-[10px] uppercase tracking-[0.3em] whitespace-nowrap shadow-[0_0_0_1px_oklch(1_0_0_/0.03)] transition-colors duration-300 contain-paint min-[390px]:inline-flex hover:border-gold hover:bg-gold hover:text-abyss ${
               activeSection === "#reserva"
-                ? "border-[var(--gold)] bg-[var(--gold)] text-[var(--abyss)]"
-                : "border-[var(--gold)]/50 bg-[var(--gold)]/5 text-[var(--ice)]"
+                ? "border-gold bg-gold text-abyss"
+                : "border-gold/50 bg-gold/5 text-ice"
             }`}
           >
             Reservar Mesa
@@ -150,18 +150,18 @@ export function Navbar() {
             aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((open) => !open)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-(--gold)/40 bg-(--gold)/5 text-(--ice) transition-colors hover:border-(--gold) hover:text-gold min-[1180px]:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 bg-gold/5 text-ice transition-colors hover:border-gold hover:text-gold min-[1180px]:hidden"
           >
             <span className="sr-only">Menu</span>
             <span className="relative h-3.5 w-5">
               <span
-                className={`absolute left-0 top-0 h-px w-full bg-current transition-transform ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`}
+                className={`absolute left-0 top-0 h-px w-full bg-current transition-transform ${menuOpen ? "translate-y-1.75 rotate-45" : ""}`}
               />
               <span
-                className={`absolute left-0 top-[7px] h-px w-full bg-current transition-opacity ${menuOpen ? "opacity-0" : ""}`}
+                className={`absolute left-0 top-1.75 h-px w-full bg-current transition-opacity ${menuOpen ? "opacity-0" : ""}`}
               />
               <span
-                className={`absolute bottom-0 left-0 h-px w-full bg-current transition-transform ${menuOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
+                className={`absolute bottom-0 left-0 h-px w-full bg-current transition-transform ${menuOpen ? "-translate-y-1.75 -rotate-45" : ""}`}
               />
             </span>
           </button>
@@ -179,8 +179,8 @@ export function Navbar() {
               onClick={() => setMenuOpen(false)}
               className={`rounded-2xl border px-4 py-3 text-center text-[11px] uppercase tracking-[0.24em] transition-colors ${
                 activeSection === link.href
-                  ? "border-(--gold) bg-(--gold) text-(--abyss)"
-                  : "border-(--ice)/10 bg-(--abyss)/80 text-(--ice)/75 hover:border-(--gold)/50 hover:text-gold"
+                  ? "border-gold bg-gold text-abyss"
+                  : "border-gold/10 bg-abyss/80 text-ice/75 hover:border-gold/50 hover:text-gold"
               }`}
             >
               {link.label}
