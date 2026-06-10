@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import crab from "@/assets/spec-crab.jpg";
 import shrimp from "@/assets/spec-shrimp.jpg";
+import polvo from "@/assets/polvo.png";
+import peixe from "@/assets/peixe.png";
 
 const dishes = [
   {
@@ -11,13 +13,13 @@ const dishes = [
   },
   {
     name: "Polvo na Folha",
-    img: "/src/assets/polvo.png",
+    img: polvo,
     ing: "Polvo grelhado · folha de bananeira · azeite de dendê · jambu",
     price: "R$ 152",
   },
   {
     name: "Peixada do Cais",
-    img: "/src/assets/peixe.png",
+    img: peixe,
     ing: "Peixe-pedra · leite de coco · pirão de camarão · coentro",
     price: "R$ 138",
   },

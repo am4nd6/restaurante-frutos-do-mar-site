@@ -2,6 +2,10 @@ import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import shrimp from "@/assets/spec-shrimp.jpg";
 import crab from "@/assets/spec-crab.jpg";
+import sururu from "@/assets/sururu.png";
+import peixe from "@/assets/peixe.png";
+import polvo from "@/assets/polvo.png";
+import lagosta from "@/assets/lagosta.png";
 
 const items = [
   { n: "01", t: "Caranguejo-uçá", img: crab, d: "Do mangue da Raposa, no leite de coco e cuxá." },
@@ -14,25 +18,25 @@ const items = [
   {
     n: "03",
     t: "Sururu & Ostras",
-    img: "/src/assets/sururu.png",
+    img: sururu,
     d: "Mariscos do litoral, abertos sobre brasa de carvão.",
   },
   {
     n: "04",
     t: "Peixe-Pedra",
-    img: "/src/assets/peixe.png",
+    img: peixe,
     d: "Inteiro, escamado na brasa, com farofa d'água.",
   },
   {
     n: "05",
     t: "Polvo do Atol",
-    img: "/src/assets/polvo.png",
+    img: polvo,
     d: "Grelhado em folha de bananeira e azeite de dendê.",
   },
   {
     n: "06",
     t: "Lagosta de Tutoia",
-    img: "/src/assets/lagosta.png",
+    img: lagosta,
     d: "Ao molho de pimenta-de-cheiro e manteiga de garrafa.",
   },
 ];
