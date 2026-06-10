@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import shrimp from "@/assets/spec-shrimp.jpg";
 import crab from "@/assets/spec-crab.jpg";
 import sururu from "@/assets/sururu.png";
@@ -44,6 +44,60 @@ const items = [
 function Card({ item, i }: { item: (typeof items)[number]; i: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [tilted, setTilted] = useState(false);
+  const isTouchRef = useRef(false);
+  const touchStartRef = useRef({ x: 0, y: 0 });
+
+  const isTouch = useCallback(() => window.matchMedia("(pointer: coarse)").matches, []);
+
+  const handlePointerMove = useCallback(
+    (e: React.PointerEvent) => {
+      if (isTouchRef.current) return;
+      const r = ref.current?.getBoundingClientRect();
+      if (!r) return;
+      setTilt({
+        x: ((e.clientX - r.left) / r.width - 0.5) * 10,
+        y: ((e.clientY - r.top) / r.height - 0.5) * -10,
+      });
+    },
+    [],
+  );
+
+  const handlePointerLeave = useCallback(() => {
+    if (isTouchRef.current) return;
+    setTilt({ x: 0, y: 0 });
+  }, []);
+
+  const handlePointerDown = useCallback(
+    (e: React.PointerEvent) => {
+      if (!isTouch()) return;
+      isTouchRef.current = true;
+      touchStartRef.current = { x: e.clientX, y: e.clientY };
+    },
+    [isTouch],
+  );
+
+  const handlePointerUp = useCallback(
+    (e: React.PointerEvent) => {
+      if (!isTouchRef.current) return;
+      const dx = Math.abs(e.clientX - touchStartRef.current.x);
+      const dy = Math.abs(e.clientY - touchStartRef.current.y);
+      if (dx > 10 || dy > 10) return;
+      const r = ref.current?.getBoundingClientRect();
+      if (!r) return;
+      const next = !tilted;
+      if (next) {
+        setTilt({
+          x: ((e.clientX - r.left) / r.width - 0.5) * 10,
+          y: ((e.clientY - r.top) / r.height - 0.5) * -10,
+        });
+      } else {
+        setTilt({ x: 0, y: 0 });
+      }
+      setTilted(next);
+    },
+    [tilted],
+  );
 
   return (
     <motion.div
@@ -52,20 +106,15 @@ function Card({ item, i }: { item: (typeof items)[number]; i: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.9, delay: (i % 3) * 0.12 }}
-      onMouseMove={(e) => {
-        const r = ref.current?.getBoundingClientRect();
-        if (!r) return;
-        setTilt({
-          x: ((e.clientX - r.left) / r.width - 0.5) * 10,
-          y: ((e.clientY - r.top) / r.height - 0.5) * -10,
-        });
-      }}
-      onMouseLeave={() => setTilt({ x: 0, y: 0 })}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}
       style={{
         transform: `perspective(1000px) rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
         transition: "transform 0.5s ease-out",
       }}
-      className="group relative overflow-hidden rounded-[1.75rem] bg-linear-to-b from-ocean-deep/60 to-abyss/80 border border-gold/10 hover:border-gold/40 transition-colors duration-700"
+      className="group relative overflow-hidden rounded-[1.75rem] bg-linear-to-b from-ocean-deep/60 to-abyss/80 border border-gold/10 hover:border-gold/40 transition-colors duration-700 will-change-transform"
     >
       <div className="aspect-4/5 overflow-hidden">
         <img
