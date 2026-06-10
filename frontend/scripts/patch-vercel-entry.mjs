@@ -1,10 +1,15 @@
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const entryPath = resolve(__dirname, "..", ".vercel", "output", "functions", "__server.func", "index.mjs");
+
+if (!existsSync(entryPath)) {
+  console.log("[patch-vercel-entry] .vercel/output not found, skipping");
+  process.exit(0);
+}
 
 let code = readFileSync(entryPath, "utf-8");
 
