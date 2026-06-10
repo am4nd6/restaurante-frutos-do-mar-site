@@ -1,4 +1,3 @@
-import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { fileURLToPath, URL } from "node:url";
@@ -30,21 +29,6 @@ export default defineConfig(({ mode }) => {
     plugins: [
       tsconfigPaths(),
       tailwindcss(),
-      tanstackStart({
-        importProtection: {
-          behavior: "error",
-          client: {
-            files: ["**/server/**"],
-            specifiers: ["server-only"],
-          },
-        },
-        server: {
-          entry: "server",
-          nitro: {
-            preset: "vercel",
-          },
-        },
-      }),
       react(),
     ],
   };
