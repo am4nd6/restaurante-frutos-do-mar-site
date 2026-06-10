@@ -328,11 +328,11 @@ export function Reserve() {
     const labelEl = (
       <span
         className={`block text-[11px] uppercase tracking-[0.3em] mb-2 transition-colors duration-300 ${
-          hasErr ? "text-red-400" : isFocused ? "text-gold" : "text-(--gold)/70"
+          hasErr ? "text-red-400" : isFocused ? "text-gold" : "text-gold/70"
         }`}
       >
         {f.l}
-        <span className={`ml-1 ${hasErr ? "text-red-400" : "text-(--gold)/40"}`}>*</span>
+        <span className={`ml-1 ${hasErr ? "text-red-400" : "text-gold/40"}`}>*</span>
       </span>
     );
 
@@ -375,14 +375,14 @@ export function Reserve() {
                   ? "border-red-400/70"
                   : isFocused || calendarOpen
                     ? "border-transparent"
-                    : "border-(--ice)/15"
+                    : "border-ice/15"
               }`}
             >
               <span className={`text-ice transition-opacity ${val ? "opacity-100" : "opacity-30"}`}>
                 {val ? fmtDate(val) : "Selecione a data"}
               </span>
               <svg
-                className="w-4 h-4 text-(--gold)/60 shrink-0 ml-2"
+                className="w-4 h-4 text-gold/60 shrink-0 ml-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -408,7 +408,7 @@ export function Reserve() {
                   transition={{ duration: 0.2 }}
                   className="absolute top-full mt-2 z-50 w-[min(17.5rem,calc(100vw-2rem))] origin-top-left"
                 >
-                  <div className="glass rounded-2xl p-4 border border-(--gold)/20 shadow-2xl bg-(--abyss)/95 backdrop-blur-xl">
+                  <div className="glass rounded-2xl p-4 border border-gold/20 shadow-2xl bg-abyss/95 backdrop-blur-xl">
                     <div className="flex items-center justify-between mb-4">
                       <button
                         type="button"
@@ -416,7 +416,7 @@ export function Reserve() {
                           e.stopPropagation();
                           navMonth(-1);
                         }}
-                        className="flex min-h-11 min-w-11 items-center justify-center rounded-full text-(--gold)/60 hover:text-gold hover:bg-(--gold)/10 transition-all"
+                        className="flex min-h-11 min-w-11 items-center justify-center rounded-full text-gold/60 hover:text-gold hover:bg-gold/10 transition-all"
                       >
                         <svg
                           className="w-4 h-4"
@@ -429,7 +429,7 @@ export function Reserve() {
                         </svg>
                       </button>
                       <span className="font-display text-sm text-ice">
-                        {MONTHS[calMonth]} <span className="text-(--gold)/60">{calYear}</span>
+                        {MONTHS[calMonth]} <span className="text-gold/60">{calYear}</span>
                       </span>
                       <button
                         type="button"
@@ -437,7 +437,7 @@ export function Reserve() {
                           e.stopPropagation();
                           navMonth(1);
                         }}
-                        className="flex min-h-11 min-w-11 items-center justify-center rounded-full text-(--gold)/60 hover:text-gold hover:bg-(--gold)/10 transition-all"
+                        className="flex min-h-11 min-w-11 items-center justify-center rounded-full text-gold/60 hover:text-gold hover:bg-gold/10 transition-all"
                       >
                         <svg
                           className="w-4 h-4"
@@ -455,7 +455,7 @@ export function Reserve() {
                       {WEEKDAYS.map((d) => (
                         <span
                           key={d}
-                          className="text-[10px] uppercase tracking-wider text-(--gold)/50 text-center"
+                          className="text-[10px] uppercase tracking-wider text-gold/50 text-center"
                         >
                           {d}
                         </span>
@@ -480,7 +480,7 @@ export function Reserve() {
                                 : isSelected(d!)
                                   ? "bg-gold text-abyss font-semibold"
                                   : isToday(d!)
-                                    ? "text-gold font-medium ring-1 ring-inset ring-(--gold)/50 hover:bg-(--gold)/15"
+                                    ? "text-gold font-medium ring-1 ring-inset ring-gold/50 hover:bg-gold/15"
                                     : "text-ice/80 hover:bg-gold/10 hover:text-gold"
                           }`}
                         >
@@ -497,7 +497,7 @@ export function Reserve() {
                         e.stopPropagation();
                         goToToday();
                       }}
-                      className="mt-3 w-full rounded-xl border border-(--gold)/20 py-2 text-[11px] uppercase tracking-[0.25em] text-(--gold)/70 transition-all hover:bg-(--gold)/10 hover:text-gold hover:border-gold/40"
+                      className="mt-3 w-full rounded-xl border border-gold/20 py-2 text-[11px] uppercase tracking-[0.25em] text-gold/70 transition-all hover:bg-gold/10 hover:text-gold hover:border-gold/40"
                     >
                       Hoje
                     </button>
@@ -530,14 +530,14 @@ export function Reserve() {
                   ? "border-red-400/70"
                   : isFocused || timeOpen
                     ? "border-transparent"
-                    : "border-(--ice)/15"
+                    : "border-ice/15"
               }`}
             >
               <span className={`text-ice transition-opacity ${val ? "opacity-100" : "opacity-30"}`}>
                 {val || "HH:MM"}
               </span>
               <svg
-                className="w-4 h-4 text-(--gold)/60 shrink-0 ml-2"
+                className="w-4 h-4 text-gold/60 shrink-0 ml-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -563,7 +563,7 @@ export function Reserve() {
                   transition={{ duration: 0.2 }}
                   className="absolute top-full mt-2 z-50 w-[min(15rem,calc(100vw-2rem))] origin-top-left"
                 >
-                  <div className="glass rounded-2xl p-5 border border-(--gold)/20 shadow-2xl bg-(--abyss)/95 backdrop-blur-xl">
+                  <div className="glass rounded-2xl p-5 border border-gold/20 shadow-2xl bg-abyss/95 backdrop-blur-xl">
                     {/* Display */}
                     <div className="flex items-center justify-center gap-2 mb-5">
                       <span className="font-display text-4xl tracking-wider text-ice">
@@ -585,7 +585,7 @@ export function Reserve() {
                             e.stopPropagation();
                             adjustHour(1);
                           }}
-                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-(--gold)/20 text-(--gold)/70 hover:text-gold hover:bg-(--gold)/12 hover:border-gold/40 transition-all active:scale-90"
+                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-gold/20 text-gold/70 hover:text-gold hover:bg-gold/12 hover:border-gold/40 transition-all active:scale-90"
                         >
                           <svg
                             className="w-4 h-4"
@@ -597,7 +597,7 @@ export function Reserve() {
                             <path strokeLinecap="round" strokeLinejoin="round" d="m5 15 7-7 7 7" />
                           </svg>
                         </button>
-                        <span className="text-[10px] uppercase tracking-[0.25em] text-(--gold)/50">
+                        <span className="text-[10px] uppercase tracking-[0.25em] text-gold/50">
                           Hora
                         </span>
                         <button
@@ -606,7 +606,7 @@ export function Reserve() {
                             e.stopPropagation();
                             adjustHour(-1);
                           }}
-                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-(--gold)/20 text-(--gold)/70 hover:text-gold hover:bg-(--gold)/12 hover:border-gold/40 transition-all active:scale-90"
+                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-gold/20 text-gold/70 hover:text-gold hover:bg-gold/12 hover:border-gold/40 transition-all active:scale-90"
                         >
                           <svg
                             className="w-4 h-4"
@@ -628,7 +628,7 @@ export function Reserve() {
                             e.stopPropagation();
                             adjustMin(1);
                           }}
-                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-(--gold)/20 text-(--gold)/70 hover:text-gold hover:bg-(--gold)/12 hover:border-gold/40 transition-all active:scale-90"
+                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-gold/20 text-gold/70 hover:text-gold hover:bg-gold/12 hover:border-gold/40 transition-all active:scale-90"
                         >
                           <svg
                             className="w-4 h-4"
@@ -640,7 +640,7 @@ export function Reserve() {
                             <path strokeLinecap="round" strokeLinejoin="round" d="m5 15 7-7 7 7" />
                           </svg>
                         </button>
-                        <span className="text-[10px] uppercase tracking-[0.25em] text-(--gold)/50">
+                        <span className="text-[10px] uppercase tracking-[0.25em] text-gold/50">
                           Min
                         </span>
                         <button
@@ -649,7 +649,7 @@ export function Reserve() {
                             e.stopPropagation();
                             adjustMin(-1);
                           }}
-                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-(--gold)/20 text-(--gold)/70 hover:text-gold hover:bg-(--gold)/12 hover:border-gold/40 transition-all active:scale-90"
+                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-gold/20 text-gold/70 hover:text-gold hover:bg-gold/12 hover:border-gold/40 transition-all active:scale-90"
                         >
                           <svg
                             className="w-4 h-4"
@@ -670,7 +670,7 @@ export function Reserve() {
                         e.stopPropagation();
                         confirmTime();
                       }}
-                      className="w-full rounded-xl bg-gold text-abyss font-semibold py-3 text-xs uppercase tracking-[0.3em] shadow-lg shadow-(--gold)/20 hover:shadow-xl hover:shadow-(--gold)/30 transition-all active:scale-95"
+                      className="w-full rounded-xl bg-gold text-abyss font-semibold py-3 text-xs uppercase tracking-[0.3em] shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30 transition-all active:scale-95"
                     >
                       Confirmar Horário
                     </button>
@@ -705,8 +705,8 @@ export function Reserve() {
               disabled={Number(val || 1) <= 1}
               className={`flex min-h-11 min-w-11 items-center justify-center rounded-full border transition-all duration-300 ${
                 Number(val || 1) <= 1
-                  ? "border-(--ice)/10 text-(--ice)/20 cursor-not-allowed"
-                  : "border-(--gold)/30 text-(--gold)/70 hover:border-gold hover:text-gold hover:bg-(--gold)/10 cursor-pointer active:scale-90"
+                  ? "border-ice/10 text-ice/20 cursor-not-allowed"
+                  : "border-gold/30 text-gold/70 hover:border-gold hover:text-gold hover:bg-gold/10 cursor-pointer active:scale-90"
               }`}
             >
               <svg
@@ -740,8 +740,8 @@ export function Reserve() {
               disabled={Number(val || 1) >= 20}
               className={`flex min-h-11 min-w-11 items-center justify-center rounded-full border transition-all duration-300 ${
                 Number(val || 1) >= 20
-                  ? "border-(--ice)/10 text-(--ice)/20 cursor-not-allowed"
-                  : "border-(--gold)/30 text-(--gold)/70 hover:border-gold hover:text-gold hover:bg-(--gold)/10 cursor-pointer active:scale-90"
+                  ? "border-ice/10 text-ice/20 cursor-not-allowed"
+                  : "border-gold/30 text-gold/70 hover:border-gold hover:text-gold hover:bg-gold/10 cursor-pointer active:scale-90"
               }`}
             >
               <svg
@@ -783,10 +783,10 @@ export function Reserve() {
               onChange={(e) => handlePhoneChange(e.target.value)}
               onFocus={() => handleFocus(f.l)}
               onBlur={() => handleBlur(f.l)}
-              className={`peer w-full bg-transparent border-b py-3 pr-3 outline-none transition-all duration-300 text-ice placeholder:text-(--ice)/25 ${
+              className={`peer w-full bg-transparent border-b py-3 pr-3 outline-none transition-all duration-300 text-ice placeholder:text-ice/25 ${
                 hasErr
                   ? "border-red-400/70 focus:border-red-400"
-                  : "border-(--ice)/15 focus:border-transparent"
+                  : "border-ice/15 focus:border-transparent"
               }`}
             />
             {underline}
@@ -807,10 +807,10 @@ export function Reserve() {
             onChange={(e) => change(f.l, e.target.value)}
             onFocus={() => handleFocus(f.l)}
             onBlur={() => handleBlur(f.l)}
-            className={`peer w-full bg-transparent border-b py-3 pr-3 outline-none transition-all duration-300 text-ice placeholder:text-(--ice)/25 ${
+            className={`peer w-full bg-transparent border-b py-3 pr-3 outline-none transition-all duration-300 text-ice placeholder:text-ice/25 ${
               hasErr
                 ? "border-red-400/70 focus:border-red-400"
-                : "border-(--ice)/15 focus:border-transparent"
+                : "border-ice/15 focus:border-transparent"
             }`}
           />
           {underline}
@@ -904,21 +904,21 @@ export function Reserve() {
           {fields.map(renderField)}
 
           <label className="block md:col-span-2">
-            <span className="block text-[11px] uppercase tracking-[0.3em] text-(--gold)/70 mb-2">
+            <span className="block text-[11px] uppercase tracking-[0.3em] text-gold/70 mb-2">
               Ocasião especial
-              <span className="text-(--gold)/30 ml-1 text-[9px]">(opcional)</span>
+              <span className="text-gold/30 ml-1 text-[9px]">(opcional)</span>
             </span>
             <div className="relative">
               <textarea
                 rows={3}
                 placeholder="Aniversário, alergias, pedido especial..."
-                className="w-full bg-transparent border-b border-(--ice)/15 focus:border-gold outline-none py-3 text-ice placeholder:text-(--ice)/25 resize-none transition-all duration-300"
+                className="w-full bg-transparent border-b border-ice/15 focus:border-gold outline-none py-3 text-ice placeholder:text-ice/25 resize-none transition-all duration-300"
               />
             </div>
           </label>
 
           <div className="md:col-span-2 flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-6">
-            <p className="text-[11px] text-(--ice)/45 max-w-sm leading-relaxed text-justify">
+            <p className="text-[11px] text-ice/45 max-w-sm leading-relaxed text-justify">
               Confirmamos por WhatsApp em até 2 horas. Cancelamentos com 24h de antecedência.
               Recomendamos reservar com uma semana — São Luís enche aos fins de semana.
             </p>
@@ -951,8 +951,8 @@ export function Reserve() {
                   whileTap={allValid ? { scale: 0.97 } : {}}
                   className={`btn-shine inline-flex items-center gap-3 rounded-full px-10 py-4 text-xs uppercase tracking-[0.3em] font-semibold transition-all duration-500 shrink-0 ${
                     allValid
-                      ? "bg-gold text-abyss shadow-lg shadow-(--gold)/25 hover:shadow-xl hover:shadow-(--gold)/35 cursor-pointer"
-                      : "bg-(--ice)/8 text-(--ice)/30 cursor-not-allowed border border-(--ice)/10"
+                      ? "bg-gold text-abyss shadow-lg shadow-gold/25 hover:shadow-xl hover:shadow-gold/35 cursor-pointer"
+                      : "bg-ice/8 text-ice/30 cursor-not-allowed border border-ice/10"
                   }`}
                 >
                   {allValid ? (

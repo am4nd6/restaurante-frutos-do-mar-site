@@ -15,6 +15,21 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Maréa" },
+      { tagName: "meta", name: "theme-color", content: "#02181D" },
+      {
+        tagName: "meta",
+        name: "theme-color",
+        content: "#02181D",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        tagName: "meta",
+        name: "theme-color",
+        content: "#02181D",
+        media: "(prefers-color-scheme: dark)",
+      },
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
       {
         name: "description",
         content:
@@ -27,13 +42,14 @@ export const Route = createFileRoute("/")({
           "Sabores da Baía de São Marcos num casarão azulejado da Praia Grande. Reserve sua mesa.",
       },
     ],
+    links: [{ tagName: "link", rel: "manifest", href: "/manifest.webmanifest" }],
   }),
   component: Index,
 });
 
 function Index() {
   return (
-    <main className="relative min-h-screen">
+    <main className="relative min-h-svh">
       <Loader />
       <Navbar />
       <Hero />

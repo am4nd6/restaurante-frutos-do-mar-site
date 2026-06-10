@@ -1,0 +1,16 @@
+{
+  "name": "Maréa — Cozinha de maré, brasa e mangue",
+  "short_name": "Maréa",
+  "description": "Restaurante Maréa — Cozinha de maré, brasa e mangue em São Luís.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#02181D",
+  "theme_color": "#02181D",
+  "icons": [
+    {
+      "src": "/peixe-icon.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}

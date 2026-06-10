@@ -18,7 +18,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-screen flex items-center pt-32 pb-24 overflow-hidden"
+      className="relative min-h-svh flex items-center pt-32 pb-24 overflow-hidden"
     >
       {/* ambient glow */}
       <div
