@@ -481,7 +481,7 @@ export function Reserve() {
                                   ? "bg-gold text-abyss font-semibold"
                                   : isToday(d!)
                                     ? "text-gold font-medium ring-1 ring-inset ring-(--gold)/50 hover:bg-(--gold)/15"
-                                    : "text-(--ice)/80 hover:bg-(--gold)/10 hover:text-gold"
+                                    : "text-ice/80 hover:bg-gold/10 hover:text-gold"
                           }`}
                         >
                           {d}

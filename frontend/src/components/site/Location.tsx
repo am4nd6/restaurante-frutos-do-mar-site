@@ -19,12 +19,12 @@ export function Location() {
             No coração da <span className="italic text-gold-gradient">Praia Grande</span>
           </h2>
 
-          <dl className="glass mx-auto mt-12 max-w-xl space-y-7 rounded-[1.75rem] border border-(--ice)/10 px-5 py-6 text-left min-[390px]:px-6 md:px-8 min-[1200px]:mx-0">
+          <dl className="glass mx-auto mt-12 max-w-xl space-y-7 rounded-[1.75rem] border border-ice/10 px-5 py-6 text-left min-[390px]:px-6 md:px-8 min-[1200px]:mx-0">
             <div className="border-b border-border pb-6">
               <dt className="mb-2 text-[10px] uppercase tracking-[0.3em] text-gold">Endereço</dt>
               <dd className="text-lg leading-relaxed text-ice">
                 Rua da Estrela, 187
-                <span className="block text-base text-(--ice)/60">
+                <span className="block text-base text-ice/60">
                   Praia Grande · Centro Histórico · São Luís — MA
                 </span>
               </dd>
@@ -87,7 +87,7 @@ export function Location() {
           <div className="absolute bottom-6 left-6 glass rounded-2xl px-5 py-4">
             <div className="text-[10px] uppercase tracking-[0.3em] text-gold">Maréa</div>
             <div className="font-display text-xl text-ice mt-1">Rua da Estrela, 187</div>
-            <div className="text-[10px] text-(--ice)/60 mt-1">
+            <div className="text-[10px] text-ice/60 mt-1">
               Praia Grande · Centro Histórico · São Luís — MA
             </div>
           </div>

@@ -71,9 +71,7 @@ export function Story() {
                 className="last:col-span-2 last:justify-self-center min-[560px]:last:col-span-1"
               >
                 <div className="font-display text-4xl text-ice">{s.v}</div>
-                <div className="mt-1 text-[10px] uppercase tracking-[0.3em] text-ice/50">
-                  {s.k}
-                </div>
+                <div className="mt-1 text-[10px] uppercase tracking-[0.3em] text-ice/50">{s.k}</div>
               </div>
             ))}
           </div>
