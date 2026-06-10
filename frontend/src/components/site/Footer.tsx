@@ -35,43 +35,35 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-6 pt-6 w-full">
-          <div className="flex flex-col items-center gap-y-1 md:flex-row md:justify-center md:gap-x-6">
-            <div className="flex justify-center gap-x-6 md:contents">
-              {footerLinks.slice(0, 4).map((l) => (
-                <a key={l.href} href={l.href} className="hover:text-gold transition-colors text-[10px] uppercase tracking-[0.3em] text-(--ice)/60">
-                  {l.label}
-                </a>
-              ))}
-            </div>
-            <div className="flex justify-center gap-x-6 md:contents">
-              {footerLinks.slice(4, 6).map((l) => (
-                <a key={l.href} href={l.href} className="hover:text-gold transition-colors text-[10px] uppercase tracking-[0.3em] text-(--ice)/60">
-                  {l.label}
-                </a>
-              ))}
-            </div>
-            <div className="flex justify-center gap-x-6 md:contents">
-              {footerLinks.slice(6).map((l) => (
-                <a key={l.href} href={l.href} className="hover:text-gold transition-colors text-[10px] uppercase tracking-[0.3em] text-(--ice)/60">
-                  {l.label}
-                </a>
-              ))}
-            </div>
+        <div className="mt-6 flex w-full flex-col items-center gap-[2px] pt-6 min-[1200px]:gap-6">
+          <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-x-5 gap-y-2 max-[410px]:grid max-[410px]:w-full max-[410px]:grid-cols-3 max-[410px]:gap-x-3 min-[640px]:gap-x-6 min-[640px]:gap-y-3">
+            {footerLinks.map((l, index) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className={`whitespace-nowrap text-center text-[10px] uppercase leading-none tracking-[0.18em] text-(--ice)/60 transition-colors hover:text-gold max-[410px]:text-[9px] max-[410px]:tracking-[0.08em] min-[640px]:tracking-[0.3em] ${
+                  index === footerLinks.length - 1
+                    ? "max-[410px]:col-span-3 max-[410px]:justify-self-center"
+                    : ""
+                }`}
+              >
+                {l.label}
+              </a>
+            ))}
           </div>
-        </div>
 
-        <div className="mt-6 flex items-center justify-center gap-3">
-          {socials.map(({ label, href, icon: Icon }) => (
-            <a
-              key={label}
-              href={href}
-              aria-label={label}
-              className="grid h-9 w-9 place-items-center rounded-full border border-(--ice)/20 text-(--ice)/70 transition-colors hover:border-gold hover:text-gold"
-            >
-              <Icon className="h-4 w-4" aria-hidden="true" />
-            </a>
-          ))}
+          <div className="flex items-center justify-center gap-3">
+            {socials.map(({ label, href, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-(--ice)/20 p-0 text-(--ice)/70 transition-colors hover:border-gold hover:text-gold"
+              >
+                <Icon className="block h-4 w-4 shrink-0" aria-hidden="true" />
+              </a>
+            ))}
+          </div>
         </div>
 
         <div className="mt-10 text-center text-[10px] uppercase tracking-[0.3em] text-(--ice)/30">

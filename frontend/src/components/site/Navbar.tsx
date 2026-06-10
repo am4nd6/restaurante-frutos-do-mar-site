@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FishIcon } from "./FishIcon";
 
 const links = [
@@ -17,6 +17,8 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("#top");
   const [menuOpen, setMenuOpen] = useState(false);
+  const headerContentRef = useRef<HTMLDivElement>(null);
+  const mobileMenuRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,6 +46,34 @@ export function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target as Node;
+
+      if (headerContentRef.current?.contains(target) || mobileMenuRef.current?.contains(target)) {
+        return;
+      }
+
+      setMenuOpen(false);
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const desktopQuery = window.matchMedia("(min-width: 1180px)");
+    const closeOnDesktop = () => {
+      if (desktopQuery.matches) setMenuOpen(false);
+    };
+
+    closeOnDesktop();
+    desktopQuery.addEventListener("change", closeOnDesktop);
+    return () => desktopQuery.removeEventListener("change", closeOnDesktop);
+  }, []);
+
   return (
     <motion.header
       initial={{ y: -40, opacity: 0 }}
@@ -56,6 +86,7 @@ export function Navbar() {
       }`}
     >
       <div
+        ref={headerContentRef}
         className={`mx-auto max-w-7xl px-6 md:px-10 flex items-center justify-between gap-4 transition-all duration-500 ${
           scrolled ? "py-1" : ""
         }`}
@@ -69,7 +100,7 @@ export function Navbar() {
           </span>
         </a>
 
-        <nav className="hidden min-[960px]:flex items-center gap-10">
+        <nav className="hidden min-[1180px]:flex items-center gap-7 xl:gap-10">
           {links.map((l) => {
             const active = activeSection === l.href;
 
@@ -78,7 +109,7 @@ export function Navbar() {
                 key={l.href}
                 href={l.href}
                 aria-current={active ? "page" : undefined}
-                className={`group relative text-xs uppercase tracking-[0.25em] transition-colors duration-300 ${
+                className={`group relative whitespace-nowrap text-xs uppercase tracking-[0.2em] transition-colors duration-300 xl:tracking-[0.25em] ${
                   active ? "text-[var(--gold)]" : "text-[var(--ice)]/70 hover:text-[var(--gold)]"
                 }`}
               >
@@ -106,7 +137,7 @@ export function Navbar() {
           <a
             href="#reserva"
             aria-current={activeSection === "#reserva" ? "page" : undefined}
-            className={`relative hidden h-10 max-h-10 items-center justify-center gap-2 overflow-hidden rounded-full border px-5 text-[10px] uppercase tracking-[0.3em] shadow-[0_0_0_1px_oklch(1_0_0_/_0.03)] transition-colors duration-300 [contain:paint] min-[390px]:inline-flex hover:border-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--abyss)] ${
+            className={`relative hidden h-10 max-h-10 items-center justify-center gap-2 overflow-hidden rounded-full border px-5 text-[10px] uppercase tracking-[0.3em] whitespace-nowrap shadow-[0_0_0_1px_oklch(1_0_0_/_0.03)] transition-colors duration-300 [contain:paint] min-[390px]:inline-flex hover:border-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--abyss)] ${
               activeSection === "#reserva"
                 ? "border-[var(--gold)] bg-[var(--gold)] text-[var(--abyss)]"
                 : "border-[var(--gold)]/50 bg-[var(--gold)]/5 text-[var(--ice)]"
@@ -119,7 +150,7 @@ export function Navbar() {
             aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((open) => !open)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-(--gold)/40 bg-(--gold)/5 text-(--ice) transition-colors hover:border-(--gold) hover:text-gold min-[960px]:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-(--gold)/40 bg-(--gold)/5 text-(--ice) transition-colors hover:border-(--gold) hover:text-gold min-[1180px]:hidden"
           >
             <span className="sr-only">Menu</span>
             <span className="relative h-3.5 w-5">
@@ -137,7 +168,10 @@ export function Navbar() {
         </div>
       </div>
       {menuOpen && (
-        <nav className="mx-auto mt-2 grid max-w-7xl gap-2 px-4 pb-4 min-[390px]:px-6 min-[960px]:hidden">
+        <nav
+          ref={mobileMenuRef}
+          className="mx-auto mt-2 grid max-w-7xl gap-2 px-4 pb-4 min-[390px]:px-6 min-[1180px]:hidden"
+        >
           {[...links, { label: "Reservar", href: "#reserva" }].map((link) => (
             <a
               key={link.href}

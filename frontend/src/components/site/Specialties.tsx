@@ -88,16 +88,16 @@ export function Specialties() {
   return (
     <section id="especialidades" className="relative py-20 md:py-28">
       <div className="site-container mx-auto max-w-7xl px-6 md:px-10">
-        <div className="mb-14 max-w-5xl">
-          <div className="grid gap-7 lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,0.55fr)] lg:items-end">
+        <div className="mx-auto mb-14 max-w-5xl text-center min-[1200px]:mx-0 min-[1200px]:text-left">
+          <div className="grid gap-7 min-[1200px]:grid-cols-[minmax(0,0.9fr)_minmax(320px,0.55fr)] min-[1200px]:items-end">
             <div>
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center justify-center gap-3 mb-6 min-[1200px]:justify-start">
                 <span className="h-px w-12 bg-gold" />
                 <span className="text-[10px] uppercase tracking-[0.4em] text-gold">
                   Do Mangue à Mesa
                 </span>
               </div>
-              <h2 className="font-display text-5xl md:text-7xl text-ice max-w-3xl leading-[1.05]">
+              <h2 className="mx-auto font-display text-5xl md:text-7xl text-ice max-w-3xl leading-[1.05] min-[1200px]:mx-0">
                 Cozinha de maré, brasa e <span className="italic text-gold-gradient">mangue</span>
               </h2>
             </div>

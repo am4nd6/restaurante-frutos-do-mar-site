@@ -9,9 +9,9 @@ export function Location() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="min-[1200px]:col-span-5"
+          className="min-[1200px]:col-span-5 text-center min-[1200px]:text-left"
         >
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center justify-center gap-3 mb-6 min-[1200px]:justify-start">
             <span className="h-px w-12 bg-gold" />
             <span className="text-[10px] uppercase tracking-[0.4em] text-gold">Visite-nos</span>
           </div>
@@ -19,7 +19,7 @@ export function Location() {
             No coração da <span className="italic text-gold-gradient">Praia Grande</span>
           </h2>
 
-          <dl className="mt-12 space-y-7">
+          <dl className="glass mx-auto mt-12 max-w-xl space-y-7 rounded-[1.75rem] border border-(--ice)/10 px-5 py-6 text-left min-[390px]:px-6 md:px-8 min-[1200px]:mx-0">
             <div className="border-b border-border pb-6">
               <dt className="mb-2 text-[10px] uppercase tracking-[0.3em] text-gold">Endereço</dt>
               <dd className="text-lg leading-relaxed text-ice">
@@ -56,14 +56,14 @@ export function Location() {
               <dt className="mb-3 text-[10px] uppercase tracking-[0.3em] text-gold">Horário</dt>
               <dd className="space-y-2 text-lg leading-relaxed text-ice">
                 <div>
-                  <span className="text-ice">Terça a domingo</span>
+                  <span className="text-sand">Terça a domingo</span>
                   <span className="block text-base text-(--ice)/65">
                     · Almoço: 12h às 16h
                     <br />· Jantar: 19h às 23h30
                   </span>
                 </div>
                 <div className="text-base text-(--ice)/55">
-                  <span className="text-ice">Fechado:</span> Segundas-feiras
+                  <span className="text-[oklch(0.68_0.14_25)]">Fechado:</span> Segundas-feiras
                 </div>
               </dd>
             </div>
@@ -79,7 +79,7 @@ export function Location() {
         >
           <iframe
             title="Mapa do Maréa na Praia Grande, São Luís"
-            src="https://www.google.com/maps?q=Rua%20da%20Estrela%20187%2C%20Praia%20Grande%2C%20Centro%20Hist%C3%B3rico%2C%20S%C3%A3o%20Lu%C3%ADs%20MA&output=embed"
+            src="https://maps.google.com/maps?hl=pt-BR&q=-2.5296319,-44.3055576&z=18&iwloc=near&output=embed"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             className="absolute inset-0 h-full w-full border-0"

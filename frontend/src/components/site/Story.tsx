@@ -4,13 +4,13 @@ import interior from "@/assets/restaurant-interior.jpg";
 export function Story() {
   return (
     <section id="historia" className="relative py-20 md:py-28">
-      <div className="site-container mx-auto max-w-7xl px-6 md:px-10 grid min-[1200px]:grid-cols-12 gap-16 items-center">
+      <div className="site-container mx-auto max-w-7xl px-6 md:px-10 grid min-[1200px]:grid-cols-12 gap-12 md:gap-16 items-center">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="min-[1200px]:col-span-5 relative"
+          className="min-[1200px]:col-span-5 relative mx-auto w-full max-w-[min(82vw,20rem)] sm:max-w-sm md:max-w-md min-[1200px]:max-w-none"
         >
           <div className="group relative aspect-3/4 overflow-hidden rounded-[2rem] shadow-luxe">
             <img
@@ -38,16 +38,16 @@ export function Story() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1 }}
-          className="min-[1200px]:col-span-7"
+          className="min-[1200px]:col-span-7 text-center min-[1200px]:text-left"
         >
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center justify-center gap-3 mb-6 min-[1200px]:justify-start">
             <span className="h-px w-12 bg-gold" />
             <span className="text-[10px] uppercase tracking-[0.4em] text-gold">Nossa Casa</span>
           </div>
           <h2 className="font-display text-5xl md:text-7xl leading-[1.05] text-ice">
             Um casarão <span className="italic text-gold-gradient">na Praia Grande</span> desde 1987
           </h2>
-          <div className="mt-10 space-y-6 text-(--ice)/70 text-lg leading-relaxed max-w-xl text-justify">
+          <div className="mx-auto mt-10 max-w-xl space-y-6 px-2 text-justify text-lg leading-relaxed text-(--ice)/70 min-[390px]:px-4 md:max-w-2xl md:px-0 min-[1200px]:mx-0 min-[1200px]:max-w-xl">
             <p>
               A Maréa nasceu num sobrado azulejado do Centro Histórico de São Luís, tombado pela
               UNESCO, fundado por uma família de marisqueiras da Raposa. Aqui, a Baía de São Marcos
@@ -60,13 +60,13 @@ export function Story() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-8 pt-10 border-t border-border">
+          <div className="mx-auto mt-12 grid max-w-sm grid-cols-2 gap-8 border-t border-border pt-10 text-center min-[560px]:max-w-none min-[560px]:grid-cols-3 min-[1200px]:mx-0">
             {[
               { k: "Pesca artesanal", v: "100%" },
               { k: "Comunidades parceiras", v: "14" },
               { k: "Cachaças do Nordeste", v: "180" },
             ].map((s) => (
-              <div key={s.k}>
+              <div key={s.k} className="last:col-span-2 last:justify-self-center min-[560px]:last:col-span-1">
                 <div className="font-display text-4xl text-ice">{s.v}</div>
                 <div className="mt-1 text-[10px] uppercase tracking-[0.3em] text-(--ice)/50">
                   {s.k}

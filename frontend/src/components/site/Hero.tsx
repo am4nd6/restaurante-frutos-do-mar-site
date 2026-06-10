@@ -56,77 +56,78 @@ export function Hero() {
           }}
           className="min-[1200px]:col-span-7 relative z-10"
         >
-          <motion.div
-            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
-            transition={{ duration: 0.9 }}
-            className="flex items-center gap-3 mb-8"
-          >
-            <span className="h-px w-12 bg-gold" />
-            <span className="text-[10px] uppercase tracking-[0.4em] text-gold">
-              São Luís · Maranhão · Desde 1987
-            </span>
-          </motion.div>
-
-          <motion.h1
-            variants={{ hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-ice"
-          >
-            A maré
-            <br />
-            do <span className="italic text-gold-gradient">Maranhão</span>
-          </motion.h1>
-
-          <motion.p
-            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
-            transition={{ duration: 0.9 }}
-            className="mt-8 max-w-xl text-(--ice)/70 text-lg leading-relaxed text-justify"
-          >
-            No coração do centro histórico de São Luís, num casarão de azulejos portugueses,
-            servimos o que a Baía de São Marcos oferece todo amanhecer — caranguejo do mangue,
-            camarão da Raposa e o tempero ancestral do cuxá.
-          </motion.p>
-
-          <motion.div
-            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
-            transition={{ duration: 0.9 }}
-            className="mt-12 flex flex-col items-stretch gap-4 min-[600px]:flex-row min-[600px]:items-center"
-          >
-            <a
-              href="#reserva"
-              className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-gold px-8 py-4 text-center text-xs font-semibold uppercase tracking-[0.3em] text-abyss shadow-gold transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_22px_60px_-22px_var(--gold)]"
+          <div className="mx-auto max-w-xl px-2 min-[390px]:px-4 md:max-w-2xl md:px-0 min-[1200px]:mx-0 min-[1200px]:max-w-none">
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.9 }}
+              className="flex items-center gap-3 mb-8"
             >
-              <span>Reservar Experiência</span>
-              <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
-                <path
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-              </svg>
-              <span className="absolute inset-0 rounded-full bg-linear-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-            </a>
-            <a
-              href="#menu"
-              className="group inline-flex items-center justify-center gap-3 rounded-full border border-(--ice)/15 bg-white/3 px-8 py-4 text-center text-xs uppercase tracking-[0.3em] text-(--ice)/80 backdrop-blur-sm transition-all duration-500 hover:border-(--gold)/60 hover:bg-(--gold)/10 hover:text-gold"
+              <span className="h-px w-12 bg-gold" />
+              <span className="text-[10px] uppercase tracking-[0.4em] text-gold">
+                São Luís · Maranhão · Desde 1987
+              </span>
+            </motion.div>
+
+            <motion.h1
+              variants={{ hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              className="font-display text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-ice"
             >
-              <span className="h-px w-8 bg-(--gold)/60 transition-all duration-500 group-hover:w-12" />
-              <span>Explorar Menu</span>
-            </a>
-          </motion.div>
+              A maré
+              <br />
+              do <span className="italic text-gold-gradient">Maranhão</span>
+            </motion.h1>
+
+            <motion.p
+              variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.9 }}
+              className="mt-8 max-w-xl text-(--ice)/70 text-lg leading-relaxed text-justify md:max-w-2xl min-[1200px]:max-w-xl"
+            >
+              No coração do centro histórico de São Luís, num casarão de azulejos portugueses,
+              servimos o que a Baía de São Marcos oferece todo amanhecer — caranguejo do mangue,
+              camarão da Raposa e o tempero ancestral do cuxá.
+            </motion.p>
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.9 }}
+              className="mx-auto mt-12 flex max-w-md flex-col items-stretch gap-4 min-[600px]:max-w-none min-[600px]:flex-row min-[600px]:items-center min-[600px]:justify-center min-[1200px]:mx-0 min-[1200px]:justify-start"
+            >
+              <a
+                href="#reserva"
+                className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-gold px-8 py-4 text-center text-xs font-semibold uppercase tracking-[0.3em] text-abyss shadow-gold transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_22px_60px_-22px_var(--gold)]"
+              >
+                <span>Reservar Experiência</span>
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+                  <path
+                    d="M1 5h12m0 0L9 1m4 4L9 9"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <span className="absolute inset-0 rounded-full bg-linear-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              </a>
+              <a
+                href="#menu"
+                className="group inline-flex items-center justify-center gap-3 rounded-full border border-(--ice)/15 bg-white/3 px-8 py-4 text-center text-xs uppercase tracking-[0.3em] text-(--ice)/80 backdrop-blur-sm transition-all duration-500 hover:border-(--gold)/60 hover:bg-(--gold)/10 hover:text-gold"
+              >
+                <span className="h-px w-8 bg-(--gold)/60 transition-all duration-500 group-hover:w-12" />
+                <span>Explorar Menu</span>
+              </a>
+            </motion.div>
+          </div>
 
           <motion.div
             variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
             transition={{ duration: 1.2 }}
-            className="mt-3 grid max-w-md grid-cols-3 gap-5 border-t border-(--ice)/10 pt-3"
+            className="mx-auto mt-3 grid max-w-sm grid-cols-2 gap-5 border-t border-(--ice)/10 pt-3 text-center min-[560px]:max-w-md min-[560px]:grid-cols-3 min-[1200px]:mx-0"
           >
             {[
               { n: "37", l: "Anos na Praia Grande" },
               { n: "★★★★", l: "Venha Comer & Beber" },
               { n: "06h", l: "Chegada do peixe" },
             ].map((s) => (
-              <div key={s.l}>
+              <div key={s.l} className="last:col-span-2 last:justify-self-center min-[560px]:last:col-span-1">
                 <div className="font-display text-3xl text-gold">{s.n}</div>
                 <div className="mt-1 text-[10px] uppercase tracking-[0.25em] text-(--ice)/50">
                   {s.l}
@@ -141,7 +142,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.85, y: 60 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1.6, delay: 2.5, ease: [0.22, 1, 0.36, 1] }}
-          className="min-[1200px]:col-span-5 relative"
+          className="min-[1200px]:col-span-5 relative mx-auto w-full max-w-[min(78vw,22rem)] sm:max-w-sm md:max-w-md min-[1200px]:max-w-none"
           style={{
             transform: `perspective(1200px) rotateY(${mouse.x * 4}deg) rotateX(${-mouse.y * 4}deg)`,
             transition: "transform 0.4s ease-out",

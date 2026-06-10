@@ -33,9 +33,9 @@ export function Menu() {
   return (
     <section id="menu" className="relative py-20 md:py-28">
       <div className="site-container mx-auto max-w-7xl px-6 md:px-10">
-        <div className="mb-12">
+        <div className="mb-12 text-center min-[960px]:text-left">
           <div>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center justify-center gap-3 mb-6 min-[960px]:justify-start">
               <span className="h-px w-12 bg-gold" />
               <span className="text-[10px] uppercase tracking-[0.4em] text-gold">
                 Cardápio da Casa
@@ -66,15 +66,18 @@ export function Menu() {
                 />
               </div>
               <div className="flex-1 py-2 min-[390px]:pr-4">
-                <div className="flex flex-col gap-1 min-[390px]:flex-row min-[390px]:items-baseline min-[390px]:justify-between min-[390px]:gap-3">
-                  <h3 className="font-display text-2xl text-ice group-hover:text-gold transition-colors">
+                <div className="flex flex-col gap-1 min-[560px]:flex-row min-[560px]:items-baseline min-[560px]:justify-between min-[560px]:gap-3">
+                  <h3 className="min-w-0 font-display text-2xl text-ice group-hover:text-gold transition-colors">
                     {d.name}
                   </h3>
-                  <span className="font-display text-xl text-gold">{d.price}</span>
+                  <span className="shrink-0 whitespace-nowrap font-display text-xl text-gold">
+                    {d.price}
+                  </span>
                 </div>
                 <p className="mt-2 text-sm text-(--ice)/60 leading-relaxed">{d.ing}</p>
-                <button className="mt-4 text-[10px] uppercase tracking-[0.3em] text-(--ice)/80 hover:text-gold transition-colors">
-                  Adicionar à reserva →
+                <button className="mt-4 inline-flex items-center gap-2 whitespace-nowrap text-[10px] uppercase tracking-[0.24em] text-(--ice)/80 transition-colors hover:text-gold min-[390px]:tracking-[0.3em]">
+                  <span>Adicionar à reserva</span>
+                  <span aria-hidden="true">→</span>
                 </button>
               </div>
             </motion.article>
@@ -83,9 +86,9 @@ export function Menu() {
         <div className="mt-10 flex justify-center">
           <a
             href="#reserva"
-            className="group inline-flex items-center gap-3 rounded-full border border-(--gold)/30 px-7 py-3 text-xs uppercase tracking-[0.3em] text-(--ice)/80 transition-all duration-500 hover:border-gold hover:bg-(--gold)/10 hover:text-gold"
+            className="group mx-auto inline-flex w-fit max-w-full items-center justify-center gap-3 rounded-full border border-(--gold)/30 px-6 py-3 text-center text-xs uppercase tracking-[0.24em] text-(--ice)/80 transition-all duration-500 hover:border-gold hover:bg-(--gold)/10 hover:text-gold min-[390px]:px-7 min-[390px]:tracking-[0.3em]"
           >
-            <span>Menu completo</span>
+            <span className="whitespace-nowrap">Menu completo</span>
             <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
           </a>
         </div>
