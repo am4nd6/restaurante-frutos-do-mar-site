@@ -29,7 +29,7 @@ export function Testimonials() {
   }, [i]);
 
   return (
-    <section className="relative py-20 md:py-28 bg-(--ocean-deep)/40">
+    <section className="relative py-20 md:py-28 bg-ocean-deep/40">
       <div className="mx-auto max-w-4xl px-6 md:px-10 text-center">
         <div className="flex items-center justify-center gap-3 mb-10">
           <span className="h-px w-12 bg-gold" />
@@ -48,7 +48,7 @@ export function Testimonials() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.8 }}
-              className="glass w-full cursor-pointer rounded-[2rem] p-10 text-center transition-colors hover:border-(--gold)/30 md:p-14"
+              className="glass w-full cursor-pointer rounded-[2rem] p-10 text-center transition-colors hover:border-gold/30 md:p-14"
             >
               <blockquote className="font-display text-2xl md:text-4xl italic text-ice leading-[1.3]">
                 "{items[i].q}"
@@ -57,7 +57,7 @@ export function Testimonials() {
                 <div className="h-px w-8 bg-gold" />
                 <div>
                   <div className="text-sm text-ice">{items[i].a}</div>
-                  <div className="text-[10px] uppercase tracking-[0.3em] text-(--ice)/50 mt-1">
+                  <div className="text-[10px] uppercase tracking-[0.3em] text-ice/50 mt-1">
                     {items[i].r}
                   </div>
                 </div>
@@ -73,7 +73,7 @@ export function Testimonials() {
               key={idx}
               onClick={() => setI(idx)}
               className={`h-1 rounded-full transition-all duration-500 ${
-                idx === i ? "w-10 bg-gold" : "w-2 bg-(--ice)/20"
+                idx === i ? "w-10 bg-gold" : "w-2 bg-ice/20"
               }`}
               aria-label={`Depoimento ${idx + 1}`}
             />

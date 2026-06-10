@@ -33,7 +33,7 @@ export function Hero() {
         {Array.from({ length: 18 }).map((_, i) => (
           <span
             key={i}
-            className="absolute block rounded-full bg-(--ice)/20 animate-bubble"
+            className="absolute block rounded-full bg-ice/20 animate-bubble"
             style={{
               left: `${(i * 53) % 100}%`,
               width: `${3 + (i % 6)}px`,
@@ -81,7 +81,7 @@ export function Hero() {
             <motion.p
               variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.9 }}
-              className="mt-8 max-w-xl text-(--ice)/70 text-lg leading-relaxed text-justify md:max-w-2xl min-[1200px]:max-w-xl"
+              className="mt-8 max-w-xl text-ice/70 text-lg leading-relaxed text-justify md:max-w-2xl min-[1200px]:max-w-xl"
             >
               No coração do centro histórico de São Luís, num casarão de azulejos portugueses,
               servimos o que a Baía de São Marcos oferece todo amanhecer — caranguejo do mangue,
@@ -109,9 +109,9 @@ export function Hero() {
               </a>
               <a
                 href="#menu"
-                className="group inline-flex items-center justify-center gap-3 rounded-full border border-(--ice)/15 bg-white/3 px-8 py-4 text-center text-xs uppercase tracking-[0.3em] text-(--ice)/80 backdrop-blur-sm transition-all duration-500 hover:border-(--gold)/60 hover:bg-(--gold)/10 hover:text-gold"
+                className="group inline-flex items-center justify-center gap-3 rounded-full border border-ice/15 bg-white/3 px-8 py-4 text-center text-xs uppercase tracking-[0.3em] text-ice/80 backdrop-blur-sm transition-all duration-500 hover:border-gold/60 hover:bg-gold/10 hover:text-gold"
               >
-                <span className="h-px w-8 bg-(--gold)/60 transition-all duration-500 group-hover:w-12" />
+                <span className="h-px w-8 bg-gold/60 transition-all duration-500 group-hover:w-12" />
                 <span>Explorar Menu</span>
               </a>
             </motion.div>
@@ -120,16 +120,19 @@ export function Hero() {
           <motion.div
             variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
             transition={{ duration: 1.2 }}
-            className="mx-auto mt-3 grid max-w-sm grid-cols-2 gap-5 border-t border-(--ice)/10 pt-3 text-center min-[560px]:max-w-md min-[560px]:grid-cols-3 min-[1200px]:mx-0"
+            className="mx-auto mt-3 grid max-w-sm grid-cols-2 gap-5 border-t border-ice/10 pt-3 text-center min-[560px]:max-w-md min-[560px]:grid-cols-3 min-[1200px]:mx-0"
           >
             {[
               { n: "37", l: "Anos na Praia Grande" },
               { n: "★★★★", l: "Venha Comer & Beber" },
               { n: "06h", l: "Chegada do peixe" },
             ].map((s) => (
-              <div key={s.l} className="last:col-span-2 last:justify-self-center min-[560px]:last:col-span-1">
+              <div
+                key={s.l}
+                className="last:col-span-2 last:justify-self-center min-[560px]:last:col-span-1"
+              >
                 <div className="font-display text-3xl text-gold">{s.n}</div>
-                <div className="mt-1 text-[10px] uppercase tracking-[0.25em] text-(--ice)/50">
+                <div className="mt-1 text-[10px] uppercase tracking-[0.25em] text-ice/50">
                   {s.l}
                 </div>
               </div>
@@ -150,8 +153,8 @@ export function Hero() {
         >
           <div className="relative aspect-square">
             {/* halo */}
-            <div className="absolute -inset-10 rounded-full bg-(--gold)/10 blur-3xl animate-float-slow" />
-            <div className="absolute inset-0 rounded-full bg-linear-to-br from-(--ocean)/40 to-transparent blur-2xl" />
+            <div className="absolute -inset-10 rounded-full bg-gold/10 blur-3xl animate-float-slow" />
+            <div className="absolute inset-0 rounded-full bg-linear-to-br from-ocean/40 to-transparent blur-2xl" />
 
             <motion.div
               animate={{ y: [0, -18, 0] }}
@@ -161,13 +164,13 @@ export function Hero() {
               <img
                 src={heroDish}
                 alt="Prato exclusivo Maréa com ostras, langostino e folhas de ouro"
-                className="h-full w-full object-cover rounded-full shadow-luxe ring-1 ring-(--gold)/30"
+                className="h-full w-full object-cover rounded-full shadow-luxe ring-1 ring-gold/30"
                 width={1024}
                 height={1024}
               />
               {/* orbit gold ring */}
-              <div className="pointer-events-none absolute -inset-3 rounded-full border border-(--gold)/20" />
-              <div className="pointer-events-none absolute -inset-8 rounded-full border border-(--gold)/10" />
+              <div className="pointer-events-none absolute -inset-3 rounded-full border border-gold/20" />
+              <div className="pointer-events-none absolute -inset-8 rounded-full border border-gold/10" />
             </motion.div>
 
             {/* floating badge */}
@@ -189,7 +192,7 @@ export function Hero() {
                   Assinatura do Chef
                 </div>
                 <div className="font-display text-lg text-ice">Pérolas do Maranhão</div>
-                <div className="mt-1 text-[10px] text-(--ice)/60">
+                <div className="mt-1 text-[10px] text-ice/60">
                   Ostras frescas · camarão selecionado · flores comestíveis · ouro 24k
                 </div>
               </motion.div>

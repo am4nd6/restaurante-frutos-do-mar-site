@@ -61,7 +61,7 @@ function Card({ item, i }: { item: (typeof items)[number]; i: number }) {
         transform: `perspective(1000px) rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
         transition: "transform 0.5s ease-out",
       }}
-      className="group relative overflow-hidden rounded-[1.75rem] bg-linear-to-b from-(--ocean-deep)/60 to-(--abyss)/80 border border-(--gold)/10 hover:border-(--gold)/40 transition-colors duration-700"
+      className="group relative overflow-hidden rounded-[1.75rem] bg-linear-to-b from-ocean-deep/60 to-abyss/80 border border-gold/10 hover:border-gold/40 transition-colors duration-700"
     >
       <div className="aspect-4/5 overflow-hidden">
         <img
@@ -70,7 +70,7 @@ function Card({ item, i }: { item: (typeof items)[number]; i: number }) {
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-abyss via-(--abyss)/30 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-abyss via-abyss/30 to-transparent" />
       </div>
       {/* shine */}
       <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_var(--mx)_var(--my),oklch(0.78_0.09_85/0.18),transparent_50%)]" />
@@ -78,7 +78,7 @@ function Card({ item, i }: { item: (typeof items)[number]; i: number }) {
       <div className="absolute inset-x-0 bottom-0 p-7">
         <div className="text-[10px] tracking-[0.4em] text-gold">{item.n}</div>
         <h3 className="mt-2 font-display text-3xl text-ice">{item.t}</h3>
-        <p className="mt-2 text-sm text-(--ice)/60 max-w-[80%]">{item.d}</p>
+        <p className="mt-2 text-sm text-ice/60 max-w-[80%]">{item.d}</p>
       </div>
     </motion.div>
   );

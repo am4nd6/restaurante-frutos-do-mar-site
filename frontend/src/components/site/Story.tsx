@@ -20,14 +20,14 @@ export function Story() {
               className="h-full w-full object-cover transition-transform duration-[1.6s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110 group-hover:rotate-1"
             />
             <div className="absolute inset-0 bg-linear-to-t from-abyss via-transparent to-transparent transition-opacity duration-700 group-hover:opacity-80" />
-            <div className="pointer-events-none absolute inset-4 rounded-[1.5rem] border border-(--gold)/0 transition-all duration-700 group-hover:inset-6 group-hover:border-(--gold)/30" />
+            <div className="pointer-events-none absolute inset-4 rounded-[1.5rem] border border-gold/0 transition-all duration-700 group-hover:inset-6 group-hover:border-gold/30" />
           </div>
           <div className="absolute -bottom-8 -right-8 glass rounded-2xl px-6 py-5 max-w-60 hidden md:block">
             <div className="font-display italic text-gold text-2xl leading-tight">
               "A maré
               <br /> manda no menu."
             </div>
-            <div className="mt-2 text-[10px] uppercase tracking-[0.3em] text-(--ice)/60">
+            <div className="mt-2 text-[10px] uppercase tracking-[0.3em] text-ice/60">
               — Chef Dona Lurdes
             </div>
           </div>
@@ -47,7 +47,7 @@ export function Story() {
           <h2 className="font-display text-5xl md:text-7xl leading-[1.05] text-ice">
             Um casarão <span className="italic text-gold-gradient">na Praia Grande</span> desde 1987
           </h2>
-          <div className="mx-auto mt-10 max-w-xl space-y-6 px-2 text-justify text-lg leading-relaxed text-(--ice)/70 min-[390px]:px-4 md:max-w-2xl md:px-0 min-[1200px]:mx-0 min-[1200px]:max-w-xl">
+          <div className="mx-auto mt-10 max-w-xl space-y-6 px-2 text-justify text-lg leading-relaxed text-ice/70 min-[390px]:px-4 md:max-w-2xl md:px-0 min-[1200px]:mx-0 min-[1200px]:max-w-xl">
             <p>
               A Maréa nasceu num sobrado azulejado do Centro Histórico de São Luís, tombado pela
               UNESCO, fundado por uma família de marisqueiras da Raposa. Aqui, a Baía de São Marcos
@@ -66,9 +66,12 @@ export function Story() {
               { k: "Comunidades parceiras", v: "14" },
               { k: "Cachaças do Nordeste", v: "180" },
             ].map((s) => (
-              <div key={s.k} className="last:col-span-2 last:justify-self-center min-[560px]:last:col-span-1">
+              <div
+                key={s.k}
+                className="last:col-span-2 last:justify-self-center min-[560px]:last:col-span-1"
+              >
                 <div className="font-display text-4xl text-ice">{s.v}</div>
-                <div className="mt-1 text-[10px] uppercase tracking-[0.3em] text-(--ice)/50">
+                <div className="mt-1 text-[10px] uppercase tracking-[0.3em] text-ice/50">
                   {s.k}
                 </div>
               </div>

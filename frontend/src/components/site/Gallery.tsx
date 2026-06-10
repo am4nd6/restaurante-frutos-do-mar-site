@@ -54,7 +54,7 @@ export function Gallery() {
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-(--abyss)/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 contain-paint" />
+              <div className="absolute inset-0 bg-linear-to-t from-abyss/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 contain-paint" />
             </motion.figure>
           ))}
         </div>

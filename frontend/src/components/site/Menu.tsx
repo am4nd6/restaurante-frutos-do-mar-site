@@ -55,7 +55,7 @@ export function Menu() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.9, delay: (i % 2) * 0.1 }}
-              className="group glass rounded-[1.75rem] p-3 flex flex-col gap-4 items-stretch hover:border-(--gold)/40 transition-all duration-700 hover:-translate-y-1 min-[390px]:flex-row min-[390px]:items-center min-[390px]:gap-5"
+              className="group glass rounded-[1.75rem] p-3 flex flex-col gap-4 items-stretch hover:border-gold/40 transition-all duration-700 hover:-translate-y-1 min-[390px]:flex-row min-[390px]:items-center min-[390px]:gap-5"
             >
               <div className="relative aspect-square w-full shrink-0 overflow-hidden rounded-2xl min-[390px]:h-32 min-[390px]:w-32 md:h-36 md:w-36">
                 <img
@@ -74,8 +74,8 @@ export function Menu() {
                     {d.price}
                   </span>
                 </div>
-                <p className="mt-2 text-sm text-(--ice)/60 leading-relaxed">{d.ing}</p>
-                <button className="mt-4 inline-flex items-center gap-2 whitespace-nowrap text-[10px] uppercase tracking-[0.24em] text-(--ice)/80 transition-colors hover:text-gold min-[390px]:tracking-[0.3em]">
+                <p className="mt-2 text-sm text-ice/60 leading-relaxed">{d.ing}</p>
+                <button className="mt-4 inline-flex items-center gap-2 whitespace-nowrap text-[10px] uppercase tracking-[0.24em] text-ice/80 transition-colors hover:text-gold min-[390px]:tracking-[0.3em]">
                   <span>Adicionar à reserva</span>
                   <span aria-hidden="true">→</span>
                 </button>
@@ -86,7 +86,7 @@ export function Menu() {
         <div className="mt-10 flex justify-center">
           <a
             href="#reserva"
-            className="group mx-auto inline-flex w-fit max-w-full items-center justify-center gap-3 rounded-full border border-(--gold)/30 px-6 py-3 text-center text-xs uppercase tracking-[0.24em] text-(--ice)/80 transition-all duration-500 hover:border-gold hover:bg-(--gold)/10 hover:text-gold min-[390px]:px-7 min-[390px]:tracking-[0.3em]"
+            className="group mx-auto inline-flex w-fit max-w-full items-center justify-center gap-3 rounded-full border border-gold/30 px-6 py-3 text-center text-xs uppercase tracking-[0.24em] text-ice/80 transition-all duration-500 hover:border-gold hover:bg-gold/10 hover:text-gold min-[390px]:px-7 min-[390px]:tracking-[0.3em]"
           >
             <span className="whitespace-nowrap">Menu completo</span>
             <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>

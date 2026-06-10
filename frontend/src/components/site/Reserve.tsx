@@ -497,7 +497,7 @@ export function Reserve() {
                         e.stopPropagation();
                         goToToday();
                       }}
-                      className="mt-3 w-full rounded-xl border border-(--gold)/20 py-2 text-[11px] uppercase tracking-[0.25em] text-(--gold)/70 transition-all hover:bg-(--gold)/10 hover:text-gold hover:border-(--gold)/40"
+                      className="mt-3 w-full rounded-xl border border-(--gold)/20 py-2 text-[11px] uppercase tracking-[0.25em] text-(--gold)/70 transition-all hover:bg-(--gold)/10 hover:text-gold hover:border-gold/40"
                     >
                       Hoje
                     </button>
@@ -585,7 +585,7 @@ export function Reserve() {
                             e.stopPropagation();
                             adjustHour(1);
                           }}
-                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-(--gold)/20 text-(--gold)/70 hover:text-gold hover:bg-(--gold)/12 hover:border-(--gold)/40 transition-all active:scale-90"
+                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-(--gold)/20 text-(--gold)/70 hover:text-gold hover:bg-(--gold)/12 hover:border-gold/40 transition-all active:scale-90"
                         >
                           <svg
                             className="w-4 h-4"
@@ -606,7 +606,7 @@ export function Reserve() {
                             e.stopPropagation();
                             adjustHour(-1);
                           }}
-                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-(--gold)/20 text-(--gold)/70 hover:text-gold hover:bg-(--gold)/12 hover:border-(--gold)/40 transition-all active:scale-90"
+                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-(--gold)/20 text-(--gold)/70 hover:text-gold hover:bg-(--gold)/12 hover:border-gold/40 transition-all active:scale-90"
                         >
                           <svg
                             className="w-4 h-4"
@@ -628,7 +628,7 @@ export function Reserve() {
                             e.stopPropagation();
                             adjustMin(1);
                           }}
-                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-(--gold)/20 text-(--gold)/70 hover:text-gold hover:bg-(--gold)/12 hover:border-(--gold)/40 transition-all active:scale-90"
+                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-(--gold)/20 text-(--gold)/70 hover:text-gold hover:bg-(--gold)/12 hover:border-gold/40 transition-all active:scale-90"
                         >
                           <svg
                             className="w-4 h-4"
@@ -649,7 +649,7 @@ export function Reserve() {
                             e.stopPropagation();
                             adjustMin(-1);
                           }}
-                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-(--gold)/20 text-(--gold)/70 hover:text-gold hover:bg-(--gold)/12 hover:border-(--gold)/40 transition-all active:scale-90"
+                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-(--gold)/20 text-(--gold)/70 hover:text-gold hover:bg-(--gold)/12 hover:border-gold/40 transition-all active:scale-90"
                         >
                           <svg
                             className="w-4 h-4"
@@ -899,7 +899,7 @@ export function Reserve() {
           transition={{ duration: 1, delay: 0.2 }}
           onSubmit={handleSubmit}
           noValidate
-          className="relative glass rounded-[2rem] p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-7 border border-(--gold)/10"
+          className="relative glass rounded-[2rem] p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-7 border border-gold/10"
         >
           {fields.map(renderField)}
 
