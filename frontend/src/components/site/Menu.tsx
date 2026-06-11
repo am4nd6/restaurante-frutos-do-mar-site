@@ -1,32 +1,32 @@
 import { motion } from "framer-motion";
 import { useTapHover } from "@/lib/use-tap-hover";
-import heroDish from "@/assets/hero-dish.jpg";
-import g1 from "@/assets/gallery-1.jpg";
-import g3 from "@/assets/gallery-3.jpg";
-import g4 from "@/assets/gallery-4.jpg";
+import g5 from "@/assets/polvo-lagareiro.png";
+import g6 from "@/assets/ostras-gratinadas.png";
+import g7 from "@/assets/casquinhas-de-siri.png";
+import g8 from "@/assets/lulas-empanadas.png";
 
 const dishes = [
   {
     name: "Polvo à Lagareiro",
-    img: heroDish,
+    img: g5,
     ing: "Polvo · azeite extra-virgem · alho · batatas ao murro · coentro fresco",
     price: "R$ 96",
   },
   {
     name: "Ostras Gratinadas com Espinafre",
-    img: g4,
+    img: g6,
     ing: "Ostras · espinafre · queijo parmesão · molho branco · farinha de rosca",
     price: "R$ 72",
   },
   {
     name: "Casquinha de Siri",
-    img: g1,
+    img: g7,
     ing: "Siri · pimenta-do-reino · farinha de rosca · queijo parmesão · cheiro-verde",
     price: "R$ 46",
   },
   {
     name: "Lulas Empanadas com Molho Tártaro",
-    img: g3,
+    img: g8,
     ing: "Lula · farinha de rosca · limão · alface americana · molho tártaro",
     price: "R$ 58",
   },

@@ -176,6 +176,8 @@
     font-size: 16px;
     -webkit-tap-highlight-color: transparent;
     overflow-x: clip;
+    background: var(--gradient-abyss);
+    background-attachment: fixed;
   }
 
   * {
