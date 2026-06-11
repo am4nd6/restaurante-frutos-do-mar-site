@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useTapHover } from "@/lib/use-tap-hover";
 
 const items = [
   {
@@ -22,6 +23,7 @@ const items = [
 export function Testimonials() {
   const [i, setI] = useState(0);
   const next = () => setI((x) => (x + 1) % items.length);
+  const { hovered, handleTap } = useTapHover();
 
   useEffect(() => {
     const t = setInterval(() => setI((x) => (x + 1) % items.length), 3000);
@@ -42,13 +44,13 @@ export function Testimonials() {
             <motion.button
               key={i}
               type="button"
-              onClick={next}
               aria-label="Avançar depoimento"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.8 }}
-              className="glass w-full cursor-pointer rounded-[2rem] p-10 text-center transition-colors hover:border-gold/30 active:border-gold/30 md:p-14"
+              className={`glass w-full cursor-pointer rounded-[2rem] p-10 text-center transition-colors hover:border-gold/30 md:p-14 ${hovered ? "border-gold/30" : ""}`}
+              onClick={() => { next(); handleTap(); }}
             >
               <blockquote className="font-display text-2xl md:text-4xl italic text-ice leading-[1.3]">
                 "{items[i].q}"

@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useMemo, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 
 interface Field {
   l: string;
@@ -101,11 +102,15 @@ const MINS = ["00", "30"];
 
 function useClickOutside(refs: React.RefObject<HTMLElement | null>[], cb: () => void) {
   useEffect(() => {
-    const handler = (e: MouseEvent) => {
+    const handler = (e: MouseEvent | TouchEvent) => {
       if (refs.every((r) => r.current && !r.current.contains(e.target as Node))) cb();
     };
     document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler, { passive: true });
+    return () => {
+      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
+    };
   }, [refs, cb]);
 }
 
@@ -121,6 +126,7 @@ export function Reserve() {
   const [timeOpen, setTimeOpen] = useState(false);
   const [tempHour, setTempHour] = useState("12");
   const [tempMin, setTempMin] = useState("00");
+  const [calPos, setCalPos] = useState<{ top: number; left: number; width: number } | null>(null);
 
   const calRef = useRef<HTMLDivElement>(null);
   const calTriggerRef = useRef<HTMLDivElement>(null);
@@ -248,7 +254,20 @@ export function Reserve() {
     setCalYear(y);
   };
 
+  const updCalPos = () => {
+    if (calTriggerRef.current) {
+      const trigger = calTriggerRef.current.getBoundingClientRect();
+      const calW = Math.min(280, window.innerWidth - 32);
+      let left = trigger.left;
+      if (left + calW > window.innerWidth - 8) {
+        left = Math.max(8, window.innerWidth - calW - 8);
+      }
+      setCalPos({ top: trigger.bottom + 8, left, width: calW });
+    }
+  };
+
   const openCalendar = () => {
+    if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
     if (values["Data"]) {
       const [y, m] = values["Data"].split("-");
       setCalYear(Number(y));
@@ -258,15 +277,21 @@ export function Reserve() {
       setCalMonth(t.getMonth());
       setCalYear(t.getFullYear());
     }
+    updCalPos();
     setCalendarOpen(true);
     handleFocus("Data");
   };
 
-  const closeCalendar = () => setCalendarOpen(false);
+  const closeCalendar = () => {
+    setCalendarOpen(false);
+    setCalPos(null);
+  };
 
   const toggleCalendar = () => {
+    if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
     if (calendarOpen) {
       setCalendarOpen(false);
+      setCalPos(null);
     } else {
       if (values["Data"]) {
         const [y, m] = values["Data"].split("-");
@@ -277,10 +302,23 @@ export function Reserve() {
         setCalMonth(t.getMonth());
         setCalYear(t.getFullYear());
       }
+      updCalPos();
       setCalendarOpen(true);
       handleFocus("Data");
     }
   };
+
+  useEffect(() => {
+    if (!calendarOpen) return;
+    const onScroll = () => updCalPos();
+    const onResize = () => updCalPos();
+    window.addEventListener("scroll", onScroll, true);
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("scroll", onScroll, true);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [calendarOpen]);
 
   const goToToday = () => {
     const t = new Date();
@@ -397,82 +435,77 @@ export function Reserve() {
             </div>
             {underline}
 
-            <AnimatePresence>
-              {calendarOpen && (
-                <motion.div
-                  ref={calRef}
-                  key="cal"
-                  initial={{ opacity: 0, y: -8, scale: 0.96 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -8, scale: 0.96 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute top-full mt-2 z-50 w-[min(17.5rem,calc(100vw-2rem))] origin-top-left"
-                >
-                  <div className="glass rounded-2xl p-4 border border-gold/20 shadow-2xl bg-abyss/95 backdrop-blur-xl">
-                    <div className="flex items-center justify-between mb-4">
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          navMonth(-1);
-                        }}
-                        className="flex min-h-11 min-w-11 items-center justify-center rounded-full text-gold/60 hover:text-gold hover:bg-gold/10 active:text-gold active:bg-gold/10 transition-all"
+            {calendarOpen && calPos && createPortal(
+              <div
+                ref={calRef}
+                style={{ position: "fixed", top: calPos.top, left: calPos.left, width: calPos.width }}
+                className="z-100"
+              >
+                <div className="glass rounded-2xl p-3 border border-gold/20 shadow-2xl bg-abyss/95 backdrop-blur-xl">
+                  <div className="flex items-center justify-between mb-3">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navMonth(-1);
+                      }}
+                      className="flex min-h-9 min-w-9 items-center justify-center rounded-full text-gold/60 hover:text-gold hover:bg-gold/10 transition-all"
+                    >
+                      <svg
+                        className="w-3 h-3"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
                       >
-                        <svg
-                          className="w-4 h-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="m15 19-7-7 7-7" />
-                        </svg>
-                      </button>
-                      <span className="font-display text-sm text-ice">
-                        {MONTHS[calMonth]} <span className="text-gold/60">{calYear}</span>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m15 19-7-7 7-7" />
+                      </svg>
+                    </button>
+                    <span className="font-display text-xs text-ice">
+                      {MONTHS[calMonth]} <span className="text-gold/60">{calYear}</span>
+                    </span>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navMonth(1);
+                      }}
+                      className="flex min-h-9 min-w-9 items-center justify-center rounded-full text-gold/60 hover:text-gold hover:bg-gold/10 transition-all"
+                    >
+                      <svg
+                        className="w-3 h-3"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m9 5 7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-7 gap-0.5 mb-1.5">
+                    {WEEKDAYS.map((d) => (
+                      <span
+                        key={d}
+                        className="text-[9px] uppercase tracking-wider text-gold/50 text-center"
+                      >
+                        {d}
                       </span>
+                    ))}
+                  </div>
+
+                  <div className="grid grid-cols-7 gap-0.5">
+                    {calDays.map((d, i) => (
                       <button
+                        key={i}
                         type="button"
+                        disabled={!d}
                         onClick={(e) => {
                           e.stopPropagation();
-                          navMonth(1);
+                          if (d) selectDate(d);
                         }}
-                        className="flex min-h-11 min-w-11 items-center justify-center rounded-full text-gold/60 hover:text-gold hover:bg-gold/10 active:text-gold active:bg-gold/10 transition-all"
-                      >
-                        <svg
-                          className="w-4 h-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="m9 5 7 7-7 7" />
-                        </svg>
-                      </button>
-                    </div>
-
-                    <div className="grid grid-cols-7 gap-1 mb-2">
-                      {WEEKDAYS.map((d) => (
-                        <span
-                          key={d}
-                          className="text-[10px] uppercase tracking-wider text-gold/50 text-center"
-                        >
-                          {d}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="grid grid-cols-7 gap-1">
-                      {calDays.map((d, i) => (
-                        <button
-                          key={i}
-                          type="button"
-                          disabled={!d}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            if (d) selectDate(d);
-                          }}
-                          className={`relative flex items-center justify-center w-full aspect-square rounded-xl text-sm transition-all duration-200 ${
+                        className={`relative flex items-center justify-center w-full h-7 rounded-lg text-xs transition-all duration-200 ${
                             !d
                               ? "invisible"
                               : isSelected(d!) && isToday(d!)
@@ -480,31 +513,29 @@ export function Reserve() {
                                 : isSelected(d!)
                                   ? "bg-gold text-abyss font-semibold"
                                   : isToday(d!)
-                                    ? "text-gold font-medium ring-1 ring-inset ring-gold/50 hover:bg-gold/15 active:bg-gold/15"
-                                    : "text-ice/80 hover:bg-gold/10 hover:text-gold active:bg-gold/10 active:text-gold"
-                          }`}
-                        >
-                          {d}
-                        </button>
-                      ))}
-
-                      {/* filler cells to keep 42 total */}
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        goToToday();
-                      }}
-                      className="mt-3 w-full rounded-xl border border-gold/20 py-2 text-[11px] uppercase tracking-[0.25em] text-gold/70 transition-all hover:bg-gold/10 hover:text-gold hover:border-gold/40 active:bg-gold/10 active:text-gold active:border-gold/40"
-                    >
-                      Hoje
-                    </button>
+                                    ? "text-gold font-medium ring-1 ring-inset ring-gold/50 hover:bg-gold/15"
+                                    : "text-ice/80 hover:bg-gold/10 hover:text-gold"
+                        }`}
+                      >
+                        {d}
+                      </button>
+                    ))}
                   </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      goToToday();
+                    }}
+                    className="mt-2 w-full rounded-lg border border-gold/20 py-1.5 text-[10px] uppercase tracking-[0.25em] text-gold/70 transition-all hover:bg-gold/10 hover:text-gold hover:border-gold/40"
+                  >
+                    Hoje
+                  </button>
+                </div>
+              </div>,
+              document.body
+            )}
           </div>
           <AnimatePresence mode="wait">{errEl}</AnimatePresence>
         </div>
@@ -585,7 +616,7 @@ export function Reserve() {
                             e.stopPropagation();
                             adjustHour(1);
                           }}
-                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-gold/20 text-gold/70 hover:text-gold hover:bg-gold/12 hover:border-gold/40 active:text-gold active:bg-gold/12 active:border-gold/40 transition-all active:scale-90"
+                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-gold/20 text-gold/70 hover:text-gold hover:bg-gold/12 hover:border-gold/40 transition-all active:scale-90"
                         >
                           <svg
                             className="w-4 h-4"
@@ -606,7 +637,7 @@ export function Reserve() {
                             e.stopPropagation();
                             adjustHour(-1);
                           }}
-                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-gold/20 text-gold/70 hover:text-gold hover:bg-gold/12 hover:border-gold/40 active:text-gold active:bg-gold/12 active:border-gold/40 transition-all active:scale-90"
+                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-gold/20 text-gold/70 hover:text-gold hover:bg-gold/12 hover:border-gold/40 transition-all active:scale-90"
                         >
                           <svg
                             className="w-4 h-4"
@@ -628,7 +659,7 @@ export function Reserve() {
                             e.stopPropagation();
                             adjustMin(1);
                           }}
-                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-gold/20 text-gold/70 hover:text-gold hover:bg-gold/12 hover:border-gold/40 active:text-gold active:bg-gold/12 active:border-gold/40 transition-all active:scale-90"
+                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-gold/20 text-gold/70 hover:text-gold hover:bg-gold/12 hover:border-gold/40 transition-all active:scale-90"
                         >
                           <svg
                             className="w-4 h-4"
@@ -649,7 +680,7 @@ export function Reserve() {
                             e.stopPropagation();
                             adjustMin(-1);
                           }}
-                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-gold/20 text-gold/70 hover:text-gold hover:bg-gold/12 hover:border-gold/40 active:text-gold active:bg-gold/12 active:border-gold/40 transition-all active:scale-90"
+                          className="flex items-center justify-center w-10 h-10 rounded-xl border border-gold/20 text-gold/70 hover:text-gold hover:bg-gold/12 hover:border-gold/40 transition-all active:scale-90"
                         >
                           <svg
                             className="w-4 h-4"
@@ -670,7 +701,7 @@ export function Reserve() {
                         e.stopPropagation();
                         confirmTime();
                       }}
-                      className="w-full rounded-xl bg-gold text-abyss font-semibold py-3 text-xs uppercase tracking-[0.3em] shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30 active:shadow-xl active:shadow-gold/30 transition-all active:scale-95"
+                      className="w-full rounded-xl bg-gold text-abyss font-semibold py-3 text-xs uppercase tracking-[0.3em] shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30 transition-all active:scale-95"
                     >
                       Confirmar Horário
                     </button>
@@ -706,7 +737,7 @@ export function Reserve() {
               className={`flex min-h-11 min-w-11 items-center justify-center rounded-full border transition-all duration-300 ${
                 Number(val || 1) <= 1
                   ? "border-ice/10 text-ice/20 cursor-not-allowed"
-                  : "border-gold/30 text-gold/70 hover:border-gold hover:text-gold hover:bg-gold/10 active:border-gold active:text-gold active:bg-gold/10 cursor-pointer active:scale-90"
+                  : "border-gold/30 text-gold/70 hover:border-gold hover:text-gold hover:bg-gold/10 cursor-pointer active:scale-90"
               }`}
             >
               <svg
@@ -741,7 +772,7 @@ export function Reserve() {
               className={`flex min-h-11 min-w-11 items-center justify-center rounded-full border transition-all duration-300 ${
                 Number(val || 1) >= 20
                   ? "border-ice/10 text-ice/20 cursor-not-allowed"
-                  : "border-gold/30 text-gold/70 hover:border-gold hover:text-gold hover:bg-gold/10 active:border-gold active:text-gold active:bg-gold/10 cursor-pointer active:scale-90"
+                  : "border-gold/30 text-gold/70 hover:border-gold hover:text-gold hover:bg-gold/10 cursor-pointer active:scale-90"
               }`}
             >
               <svg
@@ -843,8 +874,7 @@ export function Reserve() {
           transform: translateX(-100%) rotate(25deg);
           pointer-events: none;
         }
-        .btn-shine:not(:disabled):hover::after,
-        .btn-shine:not(:disabled):active::after {
+        .btn-shine:not(:disabled):hover::after {
           animation: shine 0.8s ease-out forwards;
         }
         @keyframes shine {
@@ -941,7 +971,7 @@ export function Reserve() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" d="m5 13 4 4L19 7" />
                   </svg>
-                  Reserva enviada ✓
+                  Reserva enviada
                 </motion.div>
               ) : (
                 <motion.button
@@ -952,7 +982,7 @@ export function Reserve() {
                   whileTap={allValid ? { scale: 0.97 } : {}}
                   className={`btn-shine inline-flex items-center gap-3 rounded-full px-10 py-4 text-xs uppercase tracking-[0.3em] font-semibold transition-all duration-500 shrink-0 ${
                     allValid
-                      ? "bg-gold text-abyss shadow-lg shadow-gold/25 hover:shadow-xl hover:shadow-gold/35 active:shadow-xl active:shadow-gold/35 cursor-pointer"
+                      ? "bg-gold text-abyss shadow-lg shadow-gold/25 hover:shadow-xl hover:shadow-gold/35 cursor-pointer"
                       : "bg-ice/8 text-ice/30 cursor-not-allowed border border-ice/10"
                   }`}
                 >

@@ -1,8 +1,31 @@
 import { motion } from "framer-motion";
+import { useTapHover } from "@/lib/use-tap-hover";
 import g1 from "@/assets/gallery-1.jpg";
 import g2 from "@/assets/gallery-2.jpg";
 import g3 from "@/assets/gallery-3.jpg";
 import g4 from "@/assets/gallery-4.jpg";
+
+function GalleryFigure({ src, alt, i }: { src: string; alt: string; i: number }) {
+  const { hovered, handleTap } = useTapHover();
+  return (
+    <motion.figure
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.9, delay: i * 0.1 }}
+      className="group relative aspect-4/3 overflow-hidden rounded-[1.5rem]"
+      onClick={handleTap}
+    >
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        className={`absolute inset-0 h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110 ${hovered ? "scale-110" : ""}`}
+      />
+      <div className={`absolute inset-0 bg-linear-to-t from-abyss/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${hovered ? "opacity-100" : ""}`} />
+    </motion.figure>
+  );
+}
 
 export function Gallery() {
   return (
@@ -23,39 +46,12 @@ export function Gallery() {
 
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 min-[390px]:grid-cols-2 md:gap-6">
           {[
-            {
-              src: g2,
-              alt: "Chef emplatando",
-            },
-            {
-              src: g1,
-              alt: "Pasta com vongole",
-            },
-            {
-              src: g3,
-              alt: "Champagne com ostras",
-            },
-            {
-              src: g4,
-              alt: "Vieiras seladas",
-            },
+            { src: g2, alt: "Chef emplatando" },
+            { src: g1, alt: "Pasta com vongole" },
+            { src: g3, alt: "Champagne com ostras" },
+            { src: g4, alt: "Vieiras seladas" },
           ].map((it, i) => (
-            <motion.figure
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.9, delay: i * 0.1 }}
-              className="group relative aspect-4/3 overflow-hidden rounded-[1.5rem]"
-            >
-              <img
-                src={it.src}
-                alt={it.alt}
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110 group-active:scale-110"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-abyss/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-500 contain-paint" />
-            </motion.figure>
+            <GalleryFigure key={i} src={it.src} alt={it.alt} i={i} />
           ))}
         </div>
       </div>

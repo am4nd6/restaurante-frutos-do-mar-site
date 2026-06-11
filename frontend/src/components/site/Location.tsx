@@ -1,4 +1,19 @@
 import { motion } from "framer-motion";
+import { useTapHover } from "@/lib/use-tap-hover";
+
+function ContactLink({ href, label, value }: { href: string; label: string; value: string }) {
+  const { hovered, handleTap } = useTapHover();
+  return (
+    <a
+      href={href}
+      onClick={handleTap}
+      className={`glass rounded-2xl px-4 py-3 transition-colors hover:text-gold ${hovered ? "text-gold" : ""}`}
+    >
+      <span className="block text-[10px] uppercase tracking-[0.25em] text-(--ice)/45">{label}</span>
+      <span className="mt-1 block text-lg">{value}</span>
+    </a>
+  );
+}
 
 export function Location() {
   return (
@@ -32,24 +47,8 @@ export function Location() {
             <div className="border-b border-border pb-6">
               <dt className="mb-3 text-[10px] uppercase tracking-[0.3em] text-gold">Reservas</dt>
               <dd className="grid gap-3 text-ice sm:grid-cols-2">
-                <a
-                  href="tel:+559832321987"
-                  className="glass rounded-2xl px-4 py-3 transition-colors hover:text-gold active:text-gold"
-                >
-                  <span className="block text-[10px] uppercase tracking-[0.25em] text-(--ice)/45">
-                    Telefone
-                  </span>
-                  <span className="mt-1 block text-lg">+55 (98) 3232-1987</span>
-                </a>
-                <a
-                  href="https://wa.me/5598988001987"
-                  className="glass rounded-2xl px-4 py-3 transition-colors hover:text-gold active:text-gold"
-                >
-                  <span className="block text-[10px] uppercase tracking-[0.25em] text-(--ice)/45">
-                    WhatsApp
-                  </span>
-                  <span className="mt-1 block text-lg">(98) 98800-1987</span>
-                </a>
+                <ContactLink href="tel:+559832321987" label="Telefone" value="+55 (98) 3232-1987" />
+                <ContactLink href="https://wa.me/5598988001987" label="WhatsApp" value="(98) 98800-1987" />
               </dd>
             </div>
             <div className="border-b border-border pb-6">

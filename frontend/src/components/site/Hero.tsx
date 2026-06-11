@@ -1,6 +1,38 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useTapHover } from "@/lib/use-tap-hover";
 import heroDish from "@/assets/hero-dish.jpg";
+
+function HeroPrimaryButton() {
+  const { hovered, handleTap } = useTapHover();
+  return (
+    <a
+      href="#reserva"
+      onClick={handleTap}
+      className={`group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-gold px-8 py-4 text-center text-xs font-semibold uppercase tracking-[0.3em] text-abyss shadow-gold transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_22px_60px_-22px_var(--gold)] ${hovered ? "-translate-y-1 shadow-[0_22px_60px_-22px_var(--gold)]" : ""}`}
+    >
+      <span>Reservar Experiência</span>
+      <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+        <path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+      <span className={`absolute inset-0 rounded-full bg-linear-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ${hovered ? "translate-x-full" : ""}`} />
+    </a>
+  );
+}
+
+function HeroSecondaryButton() {
+  const { hovered, handleTap } = useTapHover();
+  return (
+    <a
+      href="#menu"
+      onClick={handleTap}
+      className={`group inline-flex items-center justify-center gap-3 rounded-full border border-ice/15 bg-white/3 px-8 py-4 text-center text-xs uppercase tracking-[0.3em] text-ice/80 backdrop-blur-sm transition-all duration-500 hover:border-gold/60 hover:bg-gold/10 hover:text-gold ${hovered ? "border-gold/60 bg-gold/10 text-gold" : ""}`}
+    >
+      <span className={`h-px w-8 bg-gold/60 transition-all duration-500 group-hover:w-12 ${hovered ? "w-12" : ""}`} />
+      <span>Explorar Menu</span>
+    </a>
+  );
+}
 
 export function Hero() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -92,28 +124,8 @@ export function Hero() {
               transition={{ duration: 0.9 }}
               className="mx-auto mt-12 flex max-w-md flex-col items-stretch gap-4 min-[600px]:max-w-none min-[600px]:flex-row min-[600px]:items-center min-[600px]:justify-center min-[1200px]:mx-0 min-[1200px]:justify-start"
             >
-              <a
-                href="#reserva"
-                className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-gold px-8 py-4 text-center text-xs font-semibold uppercase tracking-[0.3em] text-abyss shadow-gold transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_22px_60px_-22px_var(--gold)] active:-translate-y-1 active:shadow-[0_22px_60px_-22px_var(--gold)]"
-              >
-                <span>Reservar Experiência</span>
-                <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
-                  <path
-                    d="M1 5h12m0 0L9 1m4 4L9 9"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
-                <span className="absolute inset-0 rounded-full bg-linear-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full group-active:translate-x-full transition-transform duration-1000" />
-              </a>
-              <a
-                href="#menu"
-                className="group inline-flex items-center justify-center gap-3 rounded-full border border-ice/15 bg-white/3 px-8 py-4 text-center text-xs uppercase tracking-[0.3em] text-ice/80 backdrop-blur-sm transition-all duration-500 hover:border-gold/60 hover:bg-gold/10 hover:text-gold active:border-gold/60 active:bg-gold/10 active:text-gold"
-              >
-                <span className="h-px w-8 bg-gold/60 transition-all duration-500 group-hover:w-12 group-active:w-12" />
-                <span>Explorar Menu</span>
-              </a>
+              <HeroPrimaryButton />
+              <HeroSecondaryButton />
             </motion.div>
           </div>
 
@@ -186,7 +198,7 @@ export function Hero() {
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: [0.45, 0, 0.55, 1] }}
-                className="rounded-2xl glass p-4 will-change-transform"
+                className="rounded-2xl glass p-4 "
               >
                 <div className="text-[9px] uppercase tracking-[0.3em] text-gold mb-1">
                   Assinatura do Chef

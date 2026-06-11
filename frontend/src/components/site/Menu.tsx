@@ -1,35 +1,89 @@
 import { motion } from "framer-motion";
-import crab from "@/assets/spec-crab.jpg";
-import shrimp from "@/assets/spec-shrimp.jpg";
-import polvo from "@/assets/polvo.png";
-import peixe from "@/assets/peixe.png";
+import { useTapHover } from "@/lib/use-tap-hover";
+import heroDish from "@/assets/hero-dish.jpg";
+import g1 from "@/assets/gallery-1.jpg";
+import g3 from "@/assets/gallery-3.jpg";
+import g4 from "@/assets/gallery-4.jpg";
 
 const dishes = [
   {
-    name: "Caranguejada Reinado",
-    img: crab,
-    ing: "Caranguejo-uçá · arroz de cuxá · vinagrete de pimenta-de-cheiro",
-    price: "R$ 168",
+    name: "Polvo à Lagareiro",
+    img: heroDish,
+    ing: "Polvo · azeite extra-virgem · alho · batatas ao murro · coentro fresco",
+    price: "R$ 96",
   },
   {
-    name: "Polvo na Folha",
-    img: polvo,
-    ing: "Polvo grelhado · folha de bananeira · azeite de dendê · jambu",
-    price: "R$ 152",
+    name: "Ostras Gratinadas com Espinafre",
+    img: g4,
+    ing: "Ostras · espinafre · queijo parmesão · molho branco · farinha de rosca",
+    price: "R$ 72",
   },
   {
-    name: "Peixada do Cais",
-    img: peixe,
-    ing: "Peixe-pedra · leite de coco · pirão de camarão · coentro",
-    price: "R$ 138",
+    name: "Casquinha de Siri",
+    img: g1,
+    ing: "Siri · pimenta-do-reino · farinha de rosca · queijo parmesão · cheiro-verde",
+    price: "R$ 46",
   },
   {
-    name: "Camarão na Moranga",
-    img: shrimp,
-    ing: "Camarão da Raposa · catupiry artesanal · jerimum · farinha d'água",
-    price: "R$ 144",
+    name: "Lulas Empanadas com Molho Tártaro",
+    img: g3,
+    ing: "Lula · farinha de rosca · limão · alface americana · molho tártaro",
+    price: "R$ 58",
   },
 ];
+
+export function DishCard({ d, i }: { d: (typeof dishes)[number]; i: number }) {
+  const { hovered, handleTap } = useTapHover();
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.9, delay: (i % 2) * 0.1 }}
+      className={`group relative glass rounded-[1.75rem] p-3 flex flex-col gap-4 items-stretch hover:border-gold/40 transition-all duration-700 hover:-translate-y-1 min-[390px]:flex-row min-[390px]:items-center min-[390px]:gap-5 ${hovered ? "border-gold/40 -translate-y-1" : ""}`}
+      onClick={handleTap}
+    >
+      <div className="relative aspect-square w-full shrink-0 overflow-hidden rounded-2xl min-[390px]:h-32 min-[390px]:w-32 md:h-36 md:w-36">
+        <img
+          src={d.img}
+          alt={d.name}
+          loading="lazy"
+          className={`h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110 ${hovered ? "scale-110" : ""}`}
+        />
+        <div className="absolute inset-0 bg-linear-to-t from-abyss/60 via-transparent to-transparent" />
+      </div>
+      <div className="flex-1 py-2 min-[390px]:pr-4">
+        <div className="flex flex-col gap-1 min-[560px]:flex-row min-[560px]:items-baseline min-[560px]:justify-between min-[560px]:gap-3">
+          <h3 className={`min-w-0 font-display text-2xl text-ice group-hover:text-gold transition-colors ${hovered ? "text-gold" : ""}`}>
+            {d.name}
+          </h3>
+          <span className="shrink-0 whitespace-nowrap font-display text-xl text-gold">
+            {d.price}
+          </span>
+        </div>
+        <p className="mt-2 text-sm text-ice/60 leading-relaxed">{d.ing}</p>
+        <button className={`mt-4 inline-flex items-center gap-2 whitespace-nowrap text-[10px] uppercase tracking-[0.24em] text-ice/80 transition-colors hover:text-gold min-[390px]:tracking-[0.3em] ${hovered ? "text-gold" : ""}`}>
+          <span>Adicionar à reserva</span>
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
+    </motion.article>
+  );
+}
+
+function MenuLink() {
+  const { hovered, handleTap } = useTapHover();
+  return (
+    <a
+      href="#reserva"
+      onClick={handleTap}
+      className={`group mx-auto inline-flex w-fit max-w-full items-center justify-center gap-3 rounded-full border border-gold/30 px-6 py-3 text-center text-xs uppercase tracking-[0.24em] text-ice/80 transition-all duration-500 hover:border-gold hover:bg-gold/10 hover:text-gold min-[390px]:px-7 min-[390px]:tracking-[0.3em] ${hovered ? "border-gold bg-gold/10 text-gold" : ""}`}
+    >
+      <span className="whitespace-nowrap">Menu completo</span>
+      <span className={`transition-transform duration-500 group-hover:translate-x-1 ${hovered ? "translate-x-1" : ""}`}>→</span>
+    </a>
+  );
+}
 
 export function Menu() {
   return (
@@ -51,48 +105,12 @@ export function Menu() {
 
         <div className="grid grid-cols-1 min-[960px]:grid-cols-2 gap-6">
           {dishes.map((d, i) => (
-            <motion.article
-              key={d.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.9, delay: (i % 2) * 0.1 }}
-              className="group glass rounded-[1.75rem] p-3 flex flex-col gap-4 items-stretch hover:border-gold/40 active:border-gold/40 transition-all duration-700 hover:-translate-y-1 active:-translate-y-1 min-[390px]:flex-row min-[390px]:items-center min-[390px]:gap-5"
-            >
-              <div className="relative aspect-square w-full shrink-0 overflow-hidden rounded-2xl min-[390px]:h-32 min-[390px]:w-32 md:h-36 md:w-36">
-                <img
-                  src={d.img}
-                  alt={d.name}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110 group-active:scale-110"
-                />
-              </div>
-              <div className="flex-1 py-2 min-[390px]:pr-4">
-                <div className="flex flex-col gap-1 min-[560px]:flex-row min-[560px]:items-baseline min-[560px]:justify-between min-[560px]:gap-3">
-                  <h3 className="min-w-0 font-display text-2xl text-ice group-hover:text-gold group-active:text-gold transition-colors">
-                    {d.name}
-                  </h3>
-                  <span className="shrink-0 whitespace-nowrap font-display text-xl text-gold">
-                    {d.price}
-                  </span>
-                </div>
-                <p className="mt-2 text-sm text-ice/60 leading-relaxed">{d.ing}</p>
-                <button className="mt-4 inline-flex items-center gap-2 whitespace-nowrap text-[10px] uppercase tracking-[0.24em] text-ice/80 transition-colors hover:text-gold active:text-gold min-[390px]:tracking-[0.3em]">
-                  <span>Adicionar à reserva</span>
-                  <span aria-hidden="true">→</span>
-                </button>
-              </div>
-            </motion.article>
+            <DishCard key={d.name} d={d} i={i} />
           ))}
         </div>
+
         <div className="mt-10 flex justify-center">
-          <a
-            href="#reserva"
-            className="group mx-auto inline-flex w-fit max-w-full items-center justify-center gap-3 rounded-full border border-gold/30 px-6 py-3 text-center text-xs uppercase tracking-[0.24em] text-ice/80 transition-all duration-500 hover:border-gold hover:bg-gold/10 hover:text-gold active:border-gold active:bg-gold/10 active:text-gold min-[390px]:px-7 min-[390px]:tracking-[0.3em]"
-          >
-            <span className="whitespace-nowrap">Menu completo</span>
-            <span className="transition-transform duration-500 group-hover:translate-x-1 group-active:translate-x-1">→</span>
-          </a>
+          <MenuLink />
         </div>
       </div>
     </section>

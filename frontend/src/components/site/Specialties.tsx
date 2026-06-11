@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useCallback, useRef, useState } from "react";
+import { useTapHover } from "@/lib/use-tap-hover";
 import shrimp from "@/assets/spec-shrimp.jpg";
 import crab from "@/assets/spec-crab.jpg";
 import sururu from "@/assets/sururu.png";
@@ -47,6 +48,7 @@ function Card({ item, i }: { item: (typeof items)[number]; i: number }) {
   const [tilted, setTilted] = useState(false);
   const isTouchRef = useRef(false);
   const touchStartRef = useRef({ x: 0, y: 0 });
+  const { hovered, handleTap } = useTapHover();
 
   const isTouch = useCallback(() => window.matchMedia("(pointer: coarse)").matches, []);
 
@@ -66,15 +68,17 @@ function Card({ item, i }: { item: (typeof items)[number]; i: number }) {
   const handlePointerLeave = useCallback(() => {
     if (isTouchRef.current) return;
     setTilt({ x: 0, y: 0 });
-  }, []);
+    handleTap();
+  }, [handleTap]);
 
   const handlePointerDown = useCallback(
     (e: React.PointerEvent) => {
       if (!isTouch()) return;
       isTouchRef.current = true;
       touchStartRef.current = { x: e.clientX, y: e.clientY };
+      handleTap();
     },
-    [isTouch],
+    [isTouch, handleTap],
   );
 
   const handlePointerUp = useCallback(
@@ -95,8 +99,9 @@ function Card({ item, i }: { item: (typeof items)[number]; i: number }) {
         setTilt({ x: 0, y: 0 });
       }
       setTilted(next);
+      handleTap();
     },
-    [tilted],
+    [tilted, handleTap],
   );
 
   return (
@@ -121,20 +126,17 @@ function Card({ item, i }: { item: (typeof items)[number]; i: number }) {
             }
           : { transform: "none" }),
       }}
-      className="group relative overflow-hidden rounded-[1.75rem] bg-linear-to-b from-ocean-deep/60 to-abyss/80 border border-gold/10 hover:border-gold/40 active:border-gold/40 transition-colors duration-700"
+      className={`group relative overflow-hidden rounded-[1.75rem] bg-linear-to-b from-ocean-deep/60 to-abyss/80 border border-gold/10 hover:border-gold/40 transition-colors duration-700 ${hovered ? "border-gold/40" : ""}`}
     >
       <div className="aspect-4/5 overflow-hidden">
         <img
           src={item.img}
           alt={item.t}
           loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110 group-active:scale-110"
+          className={`h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110 ${hovered ? "scale-110" : ""}`}
         />
         <div className="absolute inset-0 bg-linear-to-t from-abyss via-abyss/30 to-transparent" />
       </div>
-      {/* shine */}
-      <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_var(--mx)_var(--my),oklch(0.78_0.09_85/0.18),transparent_50%)]" />
-
       <div className="absolute inset-x-0 bottom-0 p-7">
         <div className="text-[10px] tracking-[0.4em] text-gold">{item.n}</div>
         <h3 className="mt-2 font-display text-3xl text-ice">{item.t}</h3>
