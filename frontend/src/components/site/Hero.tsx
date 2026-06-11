@@ -94,7 +94,7 @@ export function Hero() {
             >
               <a
                 href="#reserva"
-                className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-gold px-8 py-4 text-center text-xs font-semibold uppercase tracking-[0.3em] text-abyss shadow-gold transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_22px_60px_-22px_var(--gold)]"
+                className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-gold px-8 py-4 text-center text-xs font-semibold uppercase tracking-[0.3em] text-abyss shadow-gold transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_22px_60px_-22px_var(--gold)] active:-translate-y-1 active:shadow-[0_22px_60px_-22px_var(--gold)]"
               >
                 <span>Reservar Experiência</span>
                 <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
@@ -105,13 +105,13 @@ export function Hero() {
                     strokeLinecap="round"
                   />
                 </svg>
-                <span className="absolute inset-0 rounded-full bg-linear-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                <span className="absolute inset-0 rounded-full bg-linear-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full group-active:translate-x-full transition-transform duration-1000" />
               </a>
               <a
                 href="#menu"
-                className="group inline-flex items-center justify-center gap-3 rounded-full border border-ice/15 bg-white/3 px-8 py-4 text-center text-xs uppercase tracking-[0.3em] text-ice/80 backdrop-blur-sm transition-all duration-500 hover:border-gold/60 hover:bg-gold/10 hover:text-gold"
+                className="group inline-flex items-center justify-center gap-3 rounded-full border border-ice/15 bg-white/3 px-8 py-4 text-center text-xs uppercase tracking-[0.3em] text-ice/80 backdrop-blur-sm transition-all duration-500 hover:border-gold/60 hover:bg-gold/10 hover:text-gold active:border-gold/60 active:bg-gold/10 active:text-gold"
               >
-                <span className="h-px w-8 bg-gold/60 transition-all duration-500 group-hover:w-12" />
+                <span className="h-px w-8 bg-gold/60 transition-all duration-500 group-hover:w-12 group-active:w-12" />
                 <span>Explorar Menu</span>
               </a>
             </motion.div>

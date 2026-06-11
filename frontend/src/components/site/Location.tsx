@@ -34,7 +34,7 @@ export function Location() {
               <dd className="grid gap-3 text-ice sm:grid-cols-2">
                 <a
                   href="tel:+559832321987"
-                  className="glass rounded-2xl px-4 py-3 transition-colors hover:text-gold"
+                  className="glass rounded-2xl px-4 py-3 transition-colors hover:text-gold active:text-gold"
                 >
                   <span className="block text-[10px] uppercase tracking-[0.25em] text-(--ice)/45">
                     Telefone
@@ -43,7 +43,7 @@ export function Location() {
                 </a>
                 <a
                   href="https://wa.me/5598988001987"
-                  className="glass rounded-2xl px-4 py-3 transition-colors hover:text-gold"
+                  className="glass rounded-2xl px-4 py-3 transition-colors hover:text-gold active:text-gold"
                 >
                   <span className="block text-[10px] uppercase tracking-[0.25em] text-(--ice)/45">
                     WhatsApp

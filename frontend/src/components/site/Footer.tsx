@@ -41,7 +41,7 @@ export function Footer() {
               <a
                 key={l.href}
                 href={l.href}
-                className={`whitespace-nowrap text-center text-[10px] uppercase leading-none tracking-[0.18em] text-ice/60 transition-colors hover:text-gold max-[410px]:text-[9px] max-[410px]:tracking-[0.08em] min-[640px]:tracking-[0.3em] ${
+                className={`whitespace-nowrap text-center text-[10px] uppercase leading-none tracking-[0.18em] text-ice/60 transition-colors hover:text-gold active:text-gold max-[410px]:text-[9px] max-[410px]:tracking-[0.08em] min-[640px]:tracking-[0.3em] ${
                   index === footerLinks.length - 1
                     ? "max-[410px]:col-span-3 max-[410px]:justify-self-center"
                     : ""
@@ -58,7 +58,7 @@ export function Footer() {
                 key={label}
                 href={href}
                 aria-label={label}
-                className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-ice/20 p-0 text-ice/70 transition-colors hover:border-gold hover:text-gold"
+                className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-ice/20 p-0 text-ice/70 transition-colors hover:border-gold hover:text-gold active:border-gold active:text-gold"
               >
                 <Icon className="block h-4 w-4 shrink-0" aria-hidden="true" />
               </a>

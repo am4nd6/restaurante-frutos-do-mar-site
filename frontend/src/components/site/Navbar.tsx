@@ -92,10 +92,10 @@ export function Navbar() {
         }`}
       >
         <a href="#top" className="flex items-center gap-2 group">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-linear-to-br from-gold to-[oklch(0.66_0.08_84)] text-abyss shadow-gold ring-1 ring-gold/30 transition-transform duration-500 group-hover:rotate-6 group-hover:scale-105">
+          <span className="grid h-9 w-9 place-items-center rounded-full bg-linear-to-br from-gold to-[oklch(0.66_0.08_84)] text-abyss shadow-gold ring-1 ring-gold/30 transition-transform duration-500 group-hover:rotate-6 group-hover:scale-105 group-active:rotate-6 group-active:scale-105">
             <FishIcon className="h-6 w-6" />
           </span>
-          <span className="font-display text-xl tracking-[0.2em] text-ice group-hover:text-gold transition-colors">
+          <span className="font-display text-xl tracking-[0.2em] text-ice group-hover:text-gold group-active:text-gold transition-colors">
             MARÉA
           </span>
         </a>
@@ -110,7 +110,7 @@ export function Navbar() {
                 href={l.href}
                 aria-current={active ? "page" : undefined}
                 className={`group relative whitespace-nowrap text-xs uppercase tracking-[0.2em] transition-colors duration-300 xl:tracking-[0.25em] ${
-                  active ? "text-gold" : "text-ice/70 hover:text-gold"
+                  active ? "text-gold" : "text-ice/70 hover:text-gold active:text-gold"
                 }`}
               >
                 {l.label}
@@ -118,7 +118,7 @@ export function Navbar() {
                   className={`absolute -bottom-2 left-1/2 h-px -translate-x-1/2 bg-gold transition-all duration-500 ${
                     active
                       ? "w-full opacity-100"
-                      : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
+                      : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100 group-active:w-full group-active:opacity-100"
                   }`}
                 />
                 {active && (
@@ -137,7 +137,7 @@ export function Navbar() {
           <a
             href="#reserva"
             aria-current={activeSection === "#reserva" ? "page" : undefined}
-            className={`relative hidden h-10 max-h-10 items-center justify-center gap-2 overflow-hidden rounded-full border px-5 text-[10px] uppercase tracking-[0.3em] whitespace-nowrap shadow-[0_0_0_1px_oklch(1_0_0_/0.03)] transition-colors duration-300 contain-paint min-[390px]:inline-flex hover:border-gold hover:bg-gold hover:text-abyss ${
+            className={`relative hidden h-10 max-h-10 items-center justify-center gap-2 overflow-hidden rounded-full border px-5 text-[10px] uppercase tracking-[0.3em] whitespace-nowrap shadow-[0_0_0_1px_oklch(1_0_0_/0.03)] transition-colors duration-300 contain-paint min-[390px]:inline-flex hover:border-gold hover:bg-gold hover:text-abyss active:border-gold active:bg-gold active:text-abyss ${
               activeSection === "#reserva"
                 ? "border-gold bg-gold text-abyss"
                 : "border-gold/50 bg-gold/5 text-ice"
@@ -150,7 +150,7 @@ export function Navbar() {
             aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((open) => !open)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 bg-gold/5 text-ice transition-colors hover:border-gold hover:text-gold min-[1180px]:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 bg-gold/5 text-ice transition-colors hover:border-gold hover:text-gold active:border-gold active:text-gold min-[1180px]:hidden"
           >
             <span className="sr-only">Menu</span>
             <span className="relative h-3.5 w-5">
@@ -180,7 +180,7 @@ export function Navbar() {
               className={`rounded-2xl border px-4 py-3 text-center text-[11px] uppercase tracking-[0.24em] transition-colors ${
                 activeSection === link.href
                   ? "border-gold bg-gold text-abyss"
-                  : "border-gold/10 bg-abyss/80 text-ice/75 hover:border-gold/50 hover:text-gold"
+                  : "border-gold/10 bg-abyss/80 text-ice/75 hover:border-gold/50 hover:text-gold active:border-gold/50 active:text-gold"
               }`}
             >
               {link.label}

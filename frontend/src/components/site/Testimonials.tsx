@@ -48,7 +48,7 @@ export function Testimonials() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.8 }}
-              className="glass w-full cursor-pointer rounded-[2rem] p-10 text-center transition-colors hover:border-gold/30 md:p-14"
+              className="glass w-full cursor-pointer rounded-[2rem] p-10 text-center transition-colors hover:border-gold/30 active:border-gold/30 md:p-14"
             >
               <blockquote className="font-display text-2xl md:text-4xl italic text-ice leading-[1.3]">
                 "{items[i].q}"

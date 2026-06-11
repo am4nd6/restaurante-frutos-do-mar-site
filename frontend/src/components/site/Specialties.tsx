@@ -111,13 +111,15 @@ function Card({ item, i }: { item: (typeof items)[number]; i: number }) {
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
       style={{
-        transform: tilt.x || tilt.y
-          ? `perspective(1000px) rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`
-          : "none",
-        transition: "transform 0.5s ease-out",
-        backfaceVisibility: "hidden",
-        WebkitBackfaceVisibility: "hidden",
-        contain: "paint layout style",
+        ...(tilt.x || tilt.y
+          ? {
+              transform: `perspective(1000px) rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
+              transition: "transform 0.5s ease-out",
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+              contain: "paint layout style",
+            }
+          : { transform: "none" }),
       }}
       className="group relative overflow-hidden rounded-[1.75rem] bg-linear-to-b from-ocean-deep/60 to-abyss/80 border border-gold/10 hover:border-gold/40 active:border-gold/40 transition-colors duration-700"
     >

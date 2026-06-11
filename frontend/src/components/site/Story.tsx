@@ -17,10 +17,10 @@ export function Story() {
               src={interior}
               alt="Interior do restaurante Maréa"
               loading="lazy"
-              className="h-full w-full object-cover transition-transform duration-[1.6s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110 group-hover:rotate-1"
+              className="h-full w-full object-cover transition-transform duration-[1.6s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110 group-hover:rotate-1 group-active:scale-110 group-active:rotate-1"
             />
-            <div className="absolute inset-0 bg-linear-to-t from-abyss via-transparent to-transparent transition-opacity duration-700 group-hover:opacity-80" />
-            <div className="pointer-events-none absolute inset-4 rounded-[1.5rem] border border-gold/0 transition-all duration-700 group-hover:inset-6 group-hover:border-gold/30" />
+            <div className="absolute inset-0 bg-linear-to-t from-abyss via-transparent to-transparent transition-opacity duration-700 group-hover:opacity-80 group-active:opacity-80" />
+            <div className="pointer-events-none absolute inset-4 rounded-[1.5rem] border border-gold/0 transition-all duration-700 group-hover:inset-6 group-hover:border-gold/30 group-active:inset-6 group-active:border-gold/30" />
           </div>
           <div className="absolute -bottom-8 -right-8 glass rounded-2xl px-6 py-5 max-w-60 hidden md:block">
             <div className="font-display italic text-gold text-2xl leading-tight">
