@@ -57,19 +57,19 @@ export function Menu() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.9, delay: (i % 2) * 0.1 }}
-              className="group glass rounded-[1.75rem] p-3 flex flex-col gap-4 items-stretch hover:border-gold/40 transition-all duration-700 hover:-translate-y-1 min-[390px]:flex-row min-[390px]:items-center min-[390px]:gap-5"
+              className="group glass rounded-[1.75rem] p-3 flex flex-col gap-4 items-stretch hover:border-gold/40 active:border-gold/40 transition-all duration-700 hover:-translate-y-1 active:-translate-y-1 min-[390px]:flex-row min-[390px]:items-center min-[390px]:gap-5"
             >
               <div className="relative aspect-square w-full shrink-0 overflow-hidden rounded-2xl min-[390px]:h-32 min-[390px]:w-32 md:h-36 md:w-36">
                 <img
                   src={d.img}
                   alt={d.name}
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110"
+                  className="h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110 group-active:scale-110"
                 />
               </div>
               <div className="flex-1 py-2 min-[390px]:pr-4">
                 <div className="flex flex-col gap-1 min-[560px]:flex-row min-[560px]:items-baseline min-[560px]:justify-between min-[560px]:gap-3">
-                  <h3 className="min-w-0 font-display text-2xl text-ice group-hover:text-gold transition-colors">
+                  <h3 className="min-w-0 font-display text-2xl text-ice group-hover:text-gold group-active:text-gold transition-colors">
                     {d.name}
                   </h3>
                   <span className="shrink-0 whitespace-nowrap font-display text-xl text-gold">
@@ -77,7 +77,7 @@ export function Menu() {
                   </span>
                 </div>
                 <p className="mt-2 text-sm text-ice/60 leading-relaxed">{d.ing}</p>
-                <button className="mt-4 inline-flex items-center gap-2 whitespace-nowrap text-[10px] uppercase tracking-[0.24em] text-ice/80 transition-colors hover:text-gold min-[390px]:tracking-[0.3em]">
+                <button className="mt-4 inline-flex items-center gap-2 whitespace-nowrap text-[10px] uppercase tracking-[0.24em] text-ice/80 transition-colors hover:text-gold active:text-gold min-[390px]:tracking-[0.3em]">
                   <span>Adicionar à reserva</span>
                   <span aria-hidden="true">→</span>
                 </button>
@@ -88,10 +88,10 @@ export function Menu() {
         <div className="mt-10 flex justify-center">
           <a
             href="#reserva"
-            className="group mx-auto inline-flex w-fit max-w-full items-center justify-center gap-3 rounded-full border border-gold/30 px-6 py-3 text-center text-xs uppercase tracking-[0.24em] text-ice/80 transition-all duration-500 hover:border-gold hover:bg-gold/10 hover:text-gold min-[390px]:px-7 min-[390px]:tracking-[0.3em]"
+            className="group mx-auto inline-flex w-fit max-w-full items-center justify-center gap-3 rounded-full border border-gold/30 px-6 py-3 text-center text-xs uppercase tracking-[0.24em] text-ice/80 transition-all duration-500 hover:border-gold hover:bg-gold/10 hover:text-gold active:border-gold active:bg-gold/10 active:text-gold min-[390px]:px-7 min-[390px]:tracking-[0.3em]"
           >
             <span className="whitespace-nowrap">Menu completo</span>
-            <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+            <span className="transition-transform duration-500 group-hover:translate-x-1 group-active:translate-x-1">→</span>
           </a>
         </div>
       </div>
