@@ -188,22 +188,12 @@
   }
 
   body {
-    background: transparent;
+    background: var(--gradient-abyss);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     overflow-x: clip;
     overscroll-behavior: none;
-    position: relative;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: var(--gradient-abyss);
-    z-index: -1;
-    pointer-events: none;
   }
 
   #root {
